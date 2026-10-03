@@ -1,0 +1,10 @@
+<!-- GENERATED FILE: do not edit by hand. Run scripts/generate.py. -->
+# WAF
+
+Upstream category key: `evasions-waf`
+
+- **[Airbnb – When Bypassing JSON Encoding, XSS Filter, WAF, CSP, and Auditor turns into Eight Vulnerabilities](https://buer.haus/2017/03/08/airbnb-when-bypassing-json-encoding-xss-filter-waf-csp-and-auditor-turns-into-eight-vulnerabilities/)** — *article · intermediate · en, zh, jp · active*. Upstream ID: `evasions-waf-airbnb-when-bypassing-json-encoding-xss-filter-waf`. Archive: https://web.archive.org/web/20240930090315/https://buer.haus/2017/03/08/airbnb-when-bypassing-json-encoding-xss-filter-waf-csp-and-auditor-turns-into-eight-vulnerabilities/
+- **[How to bypass libinjection in many WAF/NGWAF](https://medium.com/@d0znpp/how-to-bypass-libinjection-in-many-waf-ngwaf-1e2513453c0f)** — *article · intermediate · en, zh, jp · active*. Upstream ID: `evasions-waf-how-to-bypass-libinjection-in-many-waf-ngwaf`. Archive: https://web.archive.org/web/20200810195452/https://medium.com/@d0znpp/how-to-bypass-libinjection-in-many-waf-ngwaf-1e2513453c0f
+- **[Web Application Firewall (WAF) Evasion Techniques](https://medium.com/secjuice/waf-evasion-techniques-718026d693d8)** — *article · intermediate · en, zh, jp · active*. Upstream ID: `evasions-waf-web-application-firewall-waf-evasion-techniques`. Archive: https://web.archive.org/web/20200915202938/https://medium.com/secjuice/waf-evasion-techniques-718026d693d8
+- **[Web Application Firewall (WAF) Evasion Techniques #2](https://medium.com/secjuice/web-application-firewall-waf-evasion-techniques-2-125995f3e7b0)** — *article · intermediate · en, zh, jp · active*. Upstream ID: `evasions-waf-web-application-firewall-waf-evasion-techniques-2`. Archive: https://web.archive.org/web/20231103210516/https://medium.com/secjuice/web-application-firewall-waf-evasion-techniques-2-125995f3e7b0
+- **[浅谈json参数解析对waf绕过的影响](https://xianzhi.aliyun.com/forum/read/553.html)** — *article · intermediate · zh · dead*. Upstream ID: `evasions-waf-json-waf`.

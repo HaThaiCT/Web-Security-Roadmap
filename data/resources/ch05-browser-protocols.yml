@@ -1,0 +1,512 @@
+- id: owasp-xss-prevention-cheat-sheet
+  title: Cross Site Scripting Prevention Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences:
+  - learner
+  - tester
+  - developer
+  primary_topic: xss
+  related_topics:
+  - encoding-parsing
+  - csp-clickjacking
+  - postmessage-dom
+  - secure-code-review
+  tier: core
+  annotation: A core XSS prevention reference centered on context-aware output encoding, dangerous contexts, sanitization, safe sinks and common anti-patterns. It is especially useful because it explains why a single generic filter or CSP-only approach is insufficient. Use it to connect payload behavior to rendering context and to design framework-specific safe output patterns.
+  cost: free
+  access: public
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English XSS prevention sections inspected; no payloads executed.
+    evidence: The inspected content maps HTML body, HTML attribute, JavaScript, CSS and URL contexts to distinct encoding rules; identifies dangerous contexts such as script blocks, event-handler attributes and tag names; recommends DOMPurify for user-authored HTML with caveats; lists safe sinks such as textContent and createTextNode; and frames CSP as defense-in-depth rather than the primary control.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: null
+- id: owasp-csrf-prevention-cheat-sheet
+  title: Cross-Site Request Forgery Prevention Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences:
+  - learner
+  - tester
+  - developer
+  primary_topic: csrf
+  related_topics:
+  - sessions
+  - cors
+  - origins-cookies
+  - testing-methodology
+  tier: core
+  annotation: Practical CSRF guidance covering synchronizer tokens, signed double-submit cookies, SameSite limits, custom headers, Fetch Metadata, Origin/Referer checks and user-interaction defenses. It is valuable because it explains when each control fails, including client-side CSRF and XSS defeating CSRF mitigations. Use it after learning cookies and before reviewing state-changing endpoints.
+  cost: free
+  access: public
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English CSRF prevention sections inspected; no requests sent to targets.
+    evidence: The inspected content requires synchronizer tokens to be unique, secret and unpredictable; recommends session-bound HMAC signed double-submit cookies over naive double-submit; describes SameSite as defense-in-depth; explains custom headers forcing preflight for APIs; covers Fetch Metadata, Origin/Referer validation, re-authentication and one-time tokens for high-value actions; and warns that XSS and client-side CSRF can bypass common CSRF controls.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: null
+- id: mdn-cors-guide
+  title: Cross-Origin Resource Sharing (CORS)
+  url: https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS
+  author: MDN contributors
+  type: documentation
+  language: en
+  difficulty: intermediate
+  audiences:
+  - learner
+  - tester
+  - developer
+  primary_topic: cors
+  related_topics:
+  - origins-cookies
+  - csrf
+  - rest-openapi
+  tier: core
+  annotation: A clear reference for how browsers use CORS headers to permit selected cross-origin reads. It covers simple and preflighted requests, credentialed requests, wildcard limits and preflight caching, making it a practical baseline before testing or configuring APIs consumed from browsers.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English CORS guide sections inspected; no requests sent to targets.
+    evidence: 'The inspected content explains CORS as HTTP-header based opt-in for browser cross-origin reads, defines simple request criteria, describes OPTIONS preflight with Access-Control-Request-* headers, documents Access-Control-Max-Age, credentialed fetch/XHR behavior, Access-Control-Allow-Credentials, wildcard restrictions for credentialed requests, Vary: Origin and third-party cookie caveats.'
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+- id: owasp-content-security-policy-cheat-sheet
+  title: Content Security Policy Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences:
+  - tester
+  - developer
+  primary_topic: csp-clickjacking
+  related_topics:
+  - xss
+  - hardening-defaults
+  - security-testing
+  tier: core
+  annotation: A practical CSP reference that frames CSP as defense-in-depth, not a replacement for XSS prevention. It is useful for designing strict nonce/hash policies, understanding reporting and avoiding brittle allowlist policies or obsolete headers.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English CSP sections inspected; no policy deployed or tested against live sites.
+    evidence: The inspected content describes CSP as a second layer for XSS, clickjacking and cross-site leaks; recommends strict nonce- or hash-based policies using strict-dynamic plus object-src and base-uri none; covers report-to/report-uri, report-only rollout, meta tag limitations, obsolete legacy headers, nonce uniqueness and CSP limitations.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+- id: portswigger-http-request-smuggling-reborn
+  title: 'HTTP Desync Attacks: Request Smuggling Reborn'
+  url: https://portswigger.net/research/http-desync-attacks-request-smuggling-reborn
+  author: James Kettle (PortSwigger)
+  type: article
+  language: en
+  difficulty: advanced
+  audiences: [learner, tester, developer]
+  primary_topic: http-smuggling
+  related_topics: [distributed-components, web-server-proxies, web-caching]
+  tier: core
+  annotation: >-
+    Foundational research on HTTP request smuggling against modern multi-tier
+    web architectures. It explains CL.TE, TE.CL, and obfuscated Transfer-Encoding
+    desynchronization between front-end reverse proxies and back-end servers,
+    providing non-destructive detection probes and architectural mitigations
+    including end-to-end HTTP/2 and request normalization.
+  cost: free
+  access: public
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English research article and methodology sections inspected; no exploit payloads sent to external systems.
+    evidence: >-
+      The inspected paper details CL.TE and TE.CL desync mechanisms where proxy and
+      backend disagree on request boundary delimiters, obfuscation variants in TE
+      headers, severe real-world impacts (credential hijacking, cache poisoning,
+      request reflection), a four-stage Detect-Confirm-Explore-Exploit methodology,
+      and defenses including HTTP/2 backends, disabling connection reuse, and strict
+      request normalization.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: 'Published August 2019; presented at Black Hat USA 2019 and DEF CON 27.'
+
+- id: owasp-web-cache-security-cheat-sheet
+  title: Web Cache Security Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/Web_Cache_Security_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: web-caching
+  related_topics: [web-server-proxies, distributed-components, headers-redirects]
+  tier: core
+  annotation: >-
+    A comprehensive defensive guide on preventing sensitive response exposure,
+    web cache poisoning, and web cache deception. It defines cache key mechanics,
+    unkeyed input hazards, delimiter and path confusion, and specifies rigorous
+    defenses including Cache-Control: no-store, private directives, and Content-Type
+    validation.
+  cost: free
+  access: public
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English web cache security sections inspected; no cache probes sent.
+    evidence: >-
+      The inspected cheat sheet distinguishes cache poisoning (injecting payloads via
+      unkeyed inputs into shared responses) from cache deception (tricking caches into
+      storing authenticated user responses via path confusion), and recommends defensive
+      rules: route-based cache policies, strict Cache-Control directives, matching URL
+      extensions to response Content-Type, and canonicalizing cache keys.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: null
+
+- id: portswigger-practical-web-cache-poisoning
+  title: Practical Web Cache Poisoning
+  url: https://portswigger.net/research/practical-web-cache-poisoning
+  author: James Kettle (PortSwigger)
+  type: article
+  language: en
+  difficulty: advanced
+  audiences: [tester, developer]
+  primary_topic: web-caching
+  related_topics: [http-smuggling, web-server-proxies, headers-redirects]
+  tier: core
+  annotation: >-
+    Pioneering research establishing web cache poisoning as a practical vulnerability
+    class. It details how unkeyed HTTP headers (such as X-Forwarded-Host or custom
+    headers) can be exploited to store malicious payloads on high-traffic endpoints,
+    providing detection methodologies and cache key auditing principles.
+  cost: free
+  access: public
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English research article and methodology sections inspected; no live targets tested.
+    evidence: >-
+      The inspected paper outlines the methodology for identifying unkeyed inputs, using
+      cache busters to safely probe intermediary behavior, chaining unkeyed headers to
+      execute reflected DOM XSS across all site visitors, and defensive controls including
+      disabling unkeyed headers, stripping unkeyed inputs at the cache layer, and using
+      the Vary header.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: 'Published August 2018; presented at Black Hat USA 2018 and DEF CON 26.'
+
+- id: owasp-dom-clobbering-prevention-cheat-sheet
+  title: DOM Clobbering Prevention Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/DOM_Clobbering_Prevention_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: postmessage-dom
+  related_topics: [xss, csp-clickjacking, secure-code-review]
+  tier: core
+  annotation: >-
+    An authoritative reference detailing HTML-only injection attacks where attackers
+    inject markup with id or name attributes that collide with and overshadow
+    global JavaScript variables or built-in DOM APIs. It outlines practical
+    sanitization controls with DOMPurify, namespace isolation, object freezing,
+    and type-safe programming patterns.
+  cost: free
+  access: public
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English DOM clobbering prevention sections inspected; no scripts executed.
+    evidence: >-
+      The inspected cheat sheet documents how named properties (id, name) collide with
+      window and document global properties, describes exploitation against script src
+      and filter bypasses, recommends HTML sanitization via DOMPurify with SANITIZE_NAMED_PROPS
+      prefixing (user-content-), Object.freeze on sensitive DOM objects, explicit variable
+      declarations, and type checking using instanceof.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: null
+
+- id: portswigger-controlling-the-web-message-source
+  title: Controlling the Web Message Source
+  url: https://portswigger.net/web-security/dom-based/controlling-the-web-message-source
+  author: PortSwigger Web Security Academy
+  type: documentation
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: postmessage-dom
+  related_topics: [xss, origins-cookies, practice-labs]
+  tier: core
+  annotation: >-
+    A practical guide on cross-document messaging security via window.postMessage.
+    It demonstrates how unvalidated event listeners allow attacker-controlled iframes
+    to supply malicious data to execution sinks (eval, innerHTML, location.href),
+    explores common origin validation flaws (indexOf, endsWith), and details robust
+    same-origin validation techniques.
+  cost: free
+  access: public
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English web message documentation and lab sections inspected; no exploit messages posted.
+    evidence: >-
+      The inspected Academy content explains postMessage source-to-sink data flow,
+      demonstrates how missing origin validation allows iframe-based cross-origin payload
+      delivery, identifies dangerous regex/string checks like indexOf or endsWith that
+      match rogue subdomains, and provides defensive patterns: validating event.origin
+      against a strict allowlist and specifying exact targetOrigin in postMessage calls.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: null
+
+- id: owasp-websocket-security-cheat-sheet
+  title: WebSocket Security Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/WebSocket_Security_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: realtime-protocols
+  related_topics: [csrf, origins-cookies, web-server-proxies]
+  tier: core
+  annotation: >-
+    A comprehensive guide to securing real-time bidirectional WebSocket connections.
+    It breaks down Cross-Site WebSocket Hijacking (CSWSH), handshake authentication,
+    origin header validation, message-level authorization, permessage-deflate compression
+    risks, and denial-of-service protections including backpressure and rate limiting.
+  cost: free
+  access: public
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English WebSocket security guidance inspected; no sockets opened.
+    evidence: >-
+      The inspected cheat sheet establishes mandatory WSS usage, details CSWSH vulnerability
+      mechanisms where browsers attach session cookies to cross-origin upgrade requests,
+      requires strict Origin header allowlisting and handshake CSRF tokens, advises against
+      permessage-deflate compression to prevent CRIME/BREACH-style leakage, and mandates
+      message-level authorization and backpressure controls.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: null
+
+- id: nccgroup-singularity-dns-rebinding
+  title: Singularity of Origin — DNS Rebinding Attack Framework
+  url: https://github.com/nccgroup/singularity
+  author: NCC Group
+  type: tool
+  language: en
+  difficulty: advanced
+  audiences: [tester, developer]
+  primary_topic: dns-rebinding
+  related_topics: [origins-cookies, ssrf, browser-internals]
+  tier: core
+  annotation: >-
+    An authoritative open-source security tool and research framework for understanding
+    and evaluating DNS rebinding attacks. It demonstrates how rapid DNS record manipulation
+    circumvents the Same-Origin Policy (SOP) to access internal network services and cloud
+    metadata through a victim's browser, and documents mitigations including Host header
+    validation, DNS filtering, and Local Network Access (LNA) standards.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: 'Maintained by NCC Group; includes defenses against modern browser controls such as Local Network Access.'
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English technical documentation, attack payloads, and defense specifications inspected; no live exploits launched.
+    evidence: >-
+      The inspected framework documentation details the mechanics of DNS rebinding attacks,
+      demonstrates SOP circumvention against localhost and internal network resources, details
+      fast rebinding techniques, catalogs payloads targeting Docker, Rails, Jenkins, and LLM endpoints,
+      and establishes key mitigations: Host header validation, blocking internal IPs at DNS resolvers,
+      and browser-level Local Network Access restrictions.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+- id: portswigger-cross-site-websocket-hijacking
+  title: Cross-Site WebSocket Hijacking
+  url: https://portswigger.net/web-security/websockets/cross-site-websocket-hijacking
+  author: PortSwigger Web Security Academy
+  type: documentation
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: realtime-protocols
+  related_topics: [csrf, origins-cookies, practice-labs]
+  tier: core
+  annotation: >-
+    A definitive guide to Cross-Site WebSocket Hijacking (CSWSH). It explains how
+    ambient cookie authentication during the initial HTTP upgrade handshake enables
+    attackers on malicious origins to establish two-way WebSocket connections to
+    read private user messages or trigger unauthorized actions on the server.
+  cost: free
+  access: public
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English CSWSH tutorial and methodology sections inspected; no live targets hijacked.
+    evidence: >-
+      The inspected Academy material defines CSWSH as CSRF on the WebSocket handshake,
+      distinguishes it from one-way CSRF by highlighting the attacker's two-way interactive
+      capability over the open socket, demonstrates how Sec-WebSocket-Key provides no
+      security against CSRF, and recommends strict Origin allowlisting and anti-CSRF tokens
+      on handshake requests.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: null
+
+- id: mdn-service-worker-api
+  title: Service Worker API
+  url: https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API
+  author: MDN contributors
+  type: documentation
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: extensions-workers
+  related_topics: [origins-cookies, browser-internals, secure-design]
+  tier: core
+  annotation: >-
+    The definitive browser documentation for service workers and progressive web app (PWA) runtime mechanics.
+    It details the event-driven worker lifecycle (download, install, activate), network interception via fetch
+    event listeners, caching mechanics, and foundational security boundaries—including mandatory HTTPS execution
+    contexts to prevent persistent adversary-in-the-middle script poisoning.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English Service Worker API documentation inspected; no workers installed.
+    evidence: >-
+      The inspected documentation details the worker execution context (isolated thread, no direct DOM access,
+      no synchronous XHR/storage); explains lifecycle events (download, install, activate); documents network
+      request interception via fetch events; and specifies that service workers require secure contexts (HTTPS)
+      to mitigate man-in-the-middle code execution.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+- id: chromium-site-isolation
+  title: Chromium Site Isolation
+  url: https://www.chromium.org/Home/chromium-security/site-isolation/
+  author: The Chromium Projects Security Team
+  type: documentation
+  language: en
+  difficulty: advanced
+  audiences: [tester, developer]
+  primary_topic: browser-internals
+  related_topics: [origins-cookies, side-channels, secure-design]
+  tier: core
+  annotation: >-
+    An authoritative technical architectural reference on modern browser process isolation models. It explains
+    how Chromium separates different websites into sandboxed operating system processes, outlines Out-of-Process
+    Iframes (OOPIFs), details Cross-Origin Read Blocking (CORB) preventing delivery of sensitive cross-site HTML/JSON
+    data to untrusted renderers, and explores mitigations against speculative execution side-channel attacks like Spectre.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English Site Isolation architecture design documents inspected; no processes sandboxed.
+    evidence: >-
+      The inspected design document defines the site boundary (scheme and registrable domain); explains process-per-site
+      allocation for tabs and out-of-process iframes; details Cross-Origin Read Blocking (CORB) preventing unauthorized
+      data delivery to renderer memory; and describes how process separation mitigates speculative execution side channels.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+- id: portswigger-http-host-header-attacks
+  title: HTTP Host Header Attacks
+  url: https://portswigger.net/web-security/host-header
+  author: PortSwigger Web Security Academy
+  type: documentation
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: headers-redirects
+  related_topics: [web-caching, ssrf, web-server-proxies]
+  tier: core
+  annotation: >-
+    A comprehensive guide to vulnerabilities resulting from implicit trust in the HTTP Host header. It explores
+    how intermediary proxies, reverse proxies, and backend application servers desynchronize routing, detailing
+    password reset poisoning, routing-based SSRF, web cache poisoning, and authentication bypasses, along with
+    remediation via strict Host allowlisting.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English Host header attack methodology and mitigation sections inspected; no live targets tested.
+    evidence: >-
+      The inspected Academy material details how virtual hosting ambiguities expose applications to Host header
+      manipulation; catalogs attack patterns including password reset poisoning, web cache poisoning, routing-based SSRF,
+      and virtual host brute-forcing; and mandates defenses including validating the Host header against a strict allowlist.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+

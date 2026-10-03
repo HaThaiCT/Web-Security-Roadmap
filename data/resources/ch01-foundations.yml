@@ -1,0 +1,235 @@
+- id: mdn-http-overview
+  title: Overview of HTTP
+  url: https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview
+  author: MDN contributors
+  type: documentation
+  language: en
+  difficulty: beginner
+  audiences:
+  - learner
+  - tester
+  - developer
+  primary_topic: http
+  related_topics:
+  - request-lifecycle
+  - distributed-components
+  - origins-cookies
+  tier: core
+  annotation: A clear baseline for understanding HTTP as an application-layer, client-initiated request/response protocol. It explains messages, methods, headers, intermediaries, statelessness, cookies, persistent connections and HTTP/2 framing, which are prerequisites for nearly every web security topic in this repository. Use it before studying browser state, authorization bugs, cache behavior or protocol parsing flaws.
+  cost: free
+  access: public
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English overview sections inspected; no code executed.
+    evidence: The page describes HTTP requests and responses as discrete messages, lists common methods and headers, explains that HTTP is stateless but sessions are commonly restored with cookies, and contrasts HTTP/1.0, HTTP/1.1 persistent connections and HTTP/2 multiplexing.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: null
+- id: mdn-same-origin-policy
+  title: Same-origin policy
+  url: https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy
+  author: MDN contributors
+  type: documentation
+  language: en
+  difficulty: beginner
+  audiences:
+  - learner
+  - tester
+  - developer
+  primary_topic: origins-cookies
+  related_topics:
+  - cors
+  - csrf
+  - postmessage-dom
+  - privacy-leakage
+  tier: core
+  annotation: A core browser-security foundation explaining the scheme/host/port origin tuple, cross-origin writes, embedding and reads, and the mechanisms used to relax or communicate across origins. It is required reading before CORS, CSRF, postMessage, browser storage or cross-origin leakage topics.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English same-origin policy sections inspected; no code executed.
+    evidence: The inspected content defines origin as scheme/host/port, distinguishes cross-origin writes, embedding and reads, lists limited cross-origin Window access, documents deprecated document.domain behavior, recommends CORS and postMessage for controlled relaxation, and notes per-origin storage behavior.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+- id: mdn-set-cookie-header
+  title: Set-Cookie header
+  url: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie
+  author: MDN contributors
+  type: documentation
+  language: en
+  difficulty: beginner
+  audiences:
+  - learner
+  - tester
+  - developer
+  primary_topic: origins-cookies
+  related_topics:
+  - sessions
+  - csrf
+  - privacy-leakage
+  tier: core
+  annotation: 'A practical reference for cookie syntax and attributes: Secure, HttpOnly, SameSite, Domain, Path, Expires, Max-Age, prefixes and partitioned cookies. It gives the vocabulary needed before studying sessions, CSRF, browser storage and cookie hardening.'
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English Set-Cookie header sections inspected; no code executed.
+    evidence: The inspected content covers Secure, HttpOnly, SameSite Strict/Lax/None, Domain and Path semantics, Expires and Max-Age precedence, __Secure-/__Host-/__Http- prefixes, Partitioned cookies, forbidden response-header behavior and CORS credential requirements for Set-Cookie.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+- id: owasp-transport-layer-security-cheat-sheet
+  title: Transport Layer Security Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Security_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: dns-tls
+  related_topics: [web-standards, hardening-defaults, web-server-proxies]
+  tier: core
+  annotation: >-
+    An authoritative reference for securing transport encryption across modern web
+    architectures. It mandates TLS 1.3 and 1.2 with AEAD cipher suites, explains the formal
+    deprecation of TLS 1.0 and 1.1 (RFC 8996), covers Forward Secrecy (ECDHE), and details
+    deployment controls including HTTP Strict Transport Security (HSTS), CAA DNS records,
+    and disabling insecure renegotiation and compression.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English TLS configuration and hardening sections inspected; no network probes executed.
+    evidence: >-
+      The inspected cheat sheet documents protocol version requirements (TLS 1.2/1.3 mandatory;
+      SSLv2/v3 and TLS 1.0/1.1 disabled per RFC 8996), AEAD cipher suites (AES-GCM, ChaCha20-Poly1305),
+      ephemeral Diffie-Hellman key exchange for forward secrecy, disabling TLS compression (CRIME defense),
+      HSTS policy configuration with preload and subdomains, and DNS Certificate Authority Authorization (CAA).
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+- id: owasp-cryptographic-storage-cheat-sheet
+  title: Cryptographic Storage Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: applied-crypto
+  related_topics: [passwords-recovery, storage-secrets, secure-design]
+  tier: core
+  annotation: >-
+    A practical guide for implementing secure data storage encryption in web backends.
+    It establishes standards for authenticated encryption (AEAD like AES-GCM), key separation,
+    cryptographically secure pseudorandom number generators (CSPRNG), and distinguishes
+    reversible data encryption from memory-hard password hashing (Argon2id, scrypt, bcrypt).
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English cryptographic storage guidance inspected; no keys generated.
+    evidence: >-
+      The inspected cheat sheet mandates authenticated encryption (AES-GCM, ChaCha20-Poly1305),
+      prohibits unauthenticated modes like CBC and ECB, requires CSPRNG for IVs and nonces,
+      enforces key separation (never reusing keys across distinct contexts or algorithms),
+      mandates key rotation and secure key lifecycle management, and requires password hashing
+      using Argon2id, scrypt, or bcrypt rather than general encryption algorithms.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+- id: unicode-tr36-security-considerations
+  title: Unicode Security Considerations (UTR #36)
+  url: https://www.unicode.org/reports/tr36/tr36-15.html
+  author: Mark Davis, Michel Suignard (Unicode Consortium)
+  type: specification
+  language: en
+  difficulty: advanced
+  audiences: [tester, developer]
+  primary_topic: encoding-parsing
+  related_topics: [web-standards, secure-code-review]
+  tier: core
+  annotation: >-
+    The canonical technical specification addressing security hazards introduced by internationalized
+    text and character encoding in software. It details visual spoofing (confusable glyphs across
+    scripts), non-shortest form UTF-8 decoding vulnerabilities, buffer length expansion risks
+    during casing and normalization (e.g. NFKC), and the non-compositionality of Unicode normalization
+    that creates bypasses in security gatekeepers.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English Unicode security sections inspected; no code executed.
+    evidence: >-
+      The inspected specification analyzes visual confusable spoofing across Cyrillic, Latin,
+      and Greek alphabets; documents the historical security impact of non-shortest form UTF-8
+      bypassing syntax checks; explains buffer expansion hazards (up to 18x during NFKC normalization);
+      and demonstrates why normalization must occur before security validation due to non-compositionality
+      and character deletion vulnerabilities.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+- id: rfc9110-http-security-considerations
+  title: 'RFC 9110: HTTP Semantics — Section 17 Security Considerations'
+  url: https://www.rfc-editor.org/rfc/rfc9110.html
+  author: R. Fielding, M. Nottingham, J. Reschke (IETF HTTP Working Group)
+  type: specification
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: web-standards
+  related_topics: [http, web-server-proxies, distributed-components]
+  tier: core
+  annotation: >-
+    The definitive IETF standard defining the core semantics of the Hypertext Transfer Protocol.
+    Section 17 provides an authoritative security breakdown of establishing authority (DNS/TLS
+    vs. plaintext HTTP), the risks of intermediary proxies and gateways, header parsing hazards,
+    handling oversized protocol elements, and sensitive information leakage in URIs, Referer headers,
+    and server software identifiers.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English RFC 9110 Section 17 security considerations inspected; no network probes executed.
+    evidence: >-
+      The inspected specification establishes authority mechanisms for http vs. https schemes;
+      warns that uncoordinated intermediaries are indistinguishable from on-path attackers;
+      specifies that servers must respond with 4xx errors rather than silently ignoring oversized
+      headers to prevent request smuggling; and analyzes privacy leaks in Referer headers and URI query parameters.
+  provenance:
+    origin: additional-research
+    upstream_ids: []

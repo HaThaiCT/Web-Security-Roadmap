@@ -1,0 +1,282 @@
+- id: mdn-client-server-overview
+  title: Client-Server overview
+  url: https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/First_steps/Client-Server_overview
+  author: MDN contributors
+  type: documentation
+  language: en
+  difficulty: beginner
+  audiences: [learner, tester, developer]
+  primary_topic: request-lifecycle
+  related_topics: [http, rendering-architectures, data-components]
+  tier: core
+  annotation: >-
+    A beginner-friendly architecture baseline for how browsers, web servers,
+    web applications, templates, databases and static assets interact during a
+    request. It is useful before studying vulnerabilities because it gives
+    learners a concrete path for tracing user input from URL or form data into
+    application code, database queries and rendered responses.
+  cost: free
+  access: public
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English client-server overview sections inspected; no code executed.
+    evidence: >-
+      The inspected content explains HTTP request methods and response status
+      examples, URL parameters, POST body data and cookies; contrasts static and
+      dynamic sites; and gives a seven-step dynamic request sequence where the
+      web server forwards a request to application code, the application queries
+      a database, renders a template and returns HTML before the browser loads
+      static CSS and JavaScript assets.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: null
+
+- id: webdev-rendering-on-the-web
+  title: Rendering on the Web
+  url: https://web.dev/articles/rendering-on-the-web
+  author: Addy Osmani and Jason Miller
+  type: article
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: rendering-architectures
+  related_topics: [request-lifecycle, frontend-bff, web-caching]
+  tier: core
+  annotation: >-
+    A practical comparison of server-side rendering, client-side rendering,
+    static rendering, streaming and hydration trade-offs. It helps readers
+    understand how modern rendering choices affect where code runs, where data
+    appears, when browser JavaScript becomes authoritative and why frontend
+    architecture matters for security review.
+  cost: free
+  access: public
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English rendering strategy sections inspected; no code executed.
+    evidence: >-
+      The inspected content compares SSR, CSR, static rendering, hydration,
+      streaming SSR, progressive or partial rehydration and trisomorphic
+      rendering, including performance and interactivity trade-offs such as TTFB,
+      FCP, main-thread blocking and delayed interactivity.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: >-
+    Original article published in 2019 and observed with an update note in 2026;
+    framework examples may age faster than the rendering model discussion.
+
+- id: mdn-http-caching
+  title: HTTP caching
+  url: https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching
+  author: MDN contributors
+  type: documentation
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: distributed-components
+  related_topics: [web-caching, http, request-lifecycle]
+  tier: core
+  annotation: >-
+    A foundational architectural reference detailing HTTP cache hierarchies, freshness
+    lifecycles, validation mechanics, and directive semantics. It distinguishes private
+    client caches from shared proxy/CDN caches, breaks down Cache-Control directives (no-store,
+    no-cache, max-age, must-revalidate), explains conditional validation via ETag and
+    Last-Modified, and covers cache key differentiation using the Vary header.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English HTTP caching documentation sections inspected; no network probes executed.
+    evidence: >-
+      The inspected content defines private vs. shared (proxy, CDN, managed) cache roles,
+      details freshness calculation and age headers, contrasts no-store (preventing storage)
+      with no-cache (mandatory revalidation), covers conditional validation requests using ETag
+      and If-None-Match returning 304 Not Modified, explains the Vary header for response differentiation,
+      and documents request collapsing and cache-busting strategies.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+- id: owasp-database-security-cheat-sheet
+  title: Database Security Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/Database_Security_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: data-components
+  related_topics: [sql-nosql, storage-secrets, backend-integrations]
+  tier: core
+  annotation: >-
+    An architectural guide for securing backend database instances in web applications.
+    It details database isolation on dedicated network segments, least-privilege application
+    accounts (limiting permissions to SELECT/INSERT/UPDATE rather than administrative superusers),
+    host-based access controls, and mandating TLS 1.2+ encryption in transit between application
+    servers and database instances.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English database security sections inspected; no queries executed.
+    evidence: >-
+      The inspected cheat sheet establishes network isolation for database servers, prohibits
+      direct client connections, mandates least-privilege service accounts (recommending SELECT,
+      UPDATE, DELETE over root/sa/SYS), and requires encrypted database connections using TLS 1.2+
+      with AEAD ciphers and client certificate verification.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+- id: owasp-xml-security-cheat-sheet
+  title: XML Security Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/XML_Security_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: parsing-templates
+  related_topics: [xxe, grpc-soap, secure-design]
+  tier: core
+  annotation: >-
+    An authoritative reference for secure XML parsing, document processing, and schema validation.
+    It details parser configurations that disable Document Type Definitions (DTDs), mitigates entity
+    expansion attacks (Billion Laughs exponential expansion and quadratic blowup), and defines
+    strict schema validation rules using bounded enumerations and length constraints.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English XML parsing security sections inspected; no entities expanded.
+    evidence: >-
+      The inspected cheat sheet documents secure XML parser configuration; explains DTD-related
+      vulnerabilities including Billion Laughs and quadratic blowup resource exhaustion; mandates
+      disabling DTDs; and recommends strict XML Schema validation with bounded maxOccurs, enumerations,
+      and positive-only numeric ranges.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+- id: mdn-web-storage-api
+  title: Web Storage API
+  url: https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API
+  author: MDN contributors
+  type: documentation
+  language: en
+  difficulty: beginner
+  audiences: [learner, tester, developer]
+  primary_topic: identity-mechanics
+  related_topics: [origins-cookies, sessions, jwt]
+  tier: core
+  annotation: >-
+    The definitive browser documentation for client-side state storage mechanisms: localStorage
+    and sessionStorage. It details origin-partitioned storage boundaries, contrasts tab-scoped
+    ephemeral storage with persistent storage, analyzes synchronous performance implications,
+    and establishes security boundaries—emphasizing that Web Storage is fully accessible to
+    JavaScript and must never store sensitive session tokens or secrets vulnerable to XSS.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English Web Storage API documentation inspected; no scripts executed.
+    evidence: >-
+      The inspected documentation details localStorage vs. sessionStorage persistence models;
+      explains origin isolation (scheme, host, port); notes synchronous main-thread blocking;
+      and explicitly warns that Web Storage is vulnerable to XSS credential theft, recommending
+      HttpOnly cookies for sensitive session tokens.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+- id: owasp-microservices-security-cheat-sheet
+  title: Microservices Security Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/Microservices_Security_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: integrations-concurrency
+  related_topics: [distributed-components, grpc-soap, secure-design]
+  tier: core
+  annotation: >-
+    An architectural guide for securing distributed microservices, message queues, and event-driven
+    integrations. It evaluates edge API gateway authorization patterns, analyzes service-to-service
+    mutual TLS (mTLS) and token authentication, details decentralized versus embedded Policy Decision
+    Points (PDP), and covers secure asynchronous logging via message brokers.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English microservices architecture sections inspected; no microservices configured.
+    evidence: >-
+      The inspected cheat sheet analyzes edge API gateway authorization trade-offs; details mTLS
+      and security token service patterns for inter-service communication; evaluates distributed
+      authorization architectures favoring local embedded PDPs; and establishes secure broker-based
+      event messaging patterns.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+- id: the-twelve-factor-app
+  title: The Twelve-Factor App
+  url: https://12factor.net/
+  author: Adam Wiggins (Heroku co-founder)
+  type: documentation
+  language: en
+  difficulty: beginner
+  audiences: [learner, tester, developer]
+  primary_topic: build-deploy-basics
+  related_topics: [storage-secrets, cloud-iam, containers-kubernetes]
+  tier: core
+  annotation: >-
+    The foundational architectural methodology for building software-as-a-service and cloud-native
+    web applications. It establishes essential architectural boundaries: separating configuration
+    from code (environment variables), treating backing services (databases, queues, caches) as
+    attached resources, strictly isolating build/release/run stages, and executing applications as
+    stateless processes.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English Twelve-Factor App principles inspected; no apps deployed.
+    evidence: >-
+      The inspected methodology mandates storing deployment configuration in environment variables
+      (Factor III); treating databases, caches, and queues as attached interchangeable resources
+      (Factor IV); strictly separating the build, release, and run pipeline stages (Factor V); and
+      running application processes statelessly (Factor VI).
+  provenance:
+    origin: additional-research
+    upstream_ids: []

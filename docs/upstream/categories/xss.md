@@ -1,0 +1,16 @@
+<!-- GENERATED FILE: do not edit by hand. Run scripts/generate.py. -->
+# XSS - Cross-Site Scripting
+
+Upstream category key: `xss`
+
+- **[A talk about XSS thousand knocks](https://speakerdeck.com/yagihashoo/a-talk-about-xss-thousand-knocks-shibuya-dot-xss-techtalk-number-10)** — *article · intermediate · jp · active*. Upstream ID: `xss-a-talk-about-xss-thousand-knocks`. Archive: https://web.archive.org/web/20240302042952/https://speakerdeck.com/yagihashoo/a-talk-about-xss-thousand-knocks-shibuya-dot-xss-techtalk-number-10
+- **[AwesomeXSS](https://github.com/s0md3v/AwesomeXSS)** — *article · intermediate · en, zh, jp · active*. Upstream ID: `xss-awesomexss`. Archive: https://web.archive.org/web/20241122130707/https://github.com/s0md3v/AwesomeXSS
+- **[C.XSS Guide](https://excess-xss.com/)** — *article · intermediate · en, zh, jp · active*. Upstream ID: `xss-c-xss-guide`. Archive: https://web.archive.org/web/20260301014025/https://excess-xss.com/
+- **[Cross-Site Scripting – Application Security – Google](https://www.google.com/intl/sw/about/appsecurity/learning/xss/)** — *article · intermediate · en, zh, jp · active*. Upstream ID: `xss-cross-site-scripting-application-security-google`.
+- **[H5SC](https://github.com/cure53/H5SC)** — *article · intermediate · en, zh, jp · active*. Upstream ID: `xss-h5sc`. Archive: https://web.archive.org/web/20240930090310/https://github.com/cure53/H5SC
+- **[Laravel Content Security Policy: Complete Implementation Guide](https://blog.shakiltech.com/laravel-content-security-policy-guide/)** — *article · intermediate · en, zh, jp · active*. Upstream ID: `xss-laravel-content-security-policy-implementation-guide`. Archive: https://web.archive.org/web/20260726072631/https://blog.shakiltech.com/laravel-content-security-policy-guide/
+- **[PayloadsAllTheThings - XSS Injection](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XSS%20Injection)** — *article · intermediate · en, zh, jp · active*. Upstream ID: `xss-payloadsallthethings-xss-injection`. Archive: https://web.archive.org/web/20240824130004/https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XSS%20Injection
+- **[THE BIG BAD WOLF - XSS AND MAINTAINING ACCESS](https://www.paulosyibelo.com/2018/06/the-big-bad-wolf-xss-and-maintaining.html)** — *article · intermediate · en, zh, jp · active*. Upstream ID: `xss-the-big-bad-wolf-xss-and-maintaining-access`. Archive: https://web.archive.org/web/20250409141857/https://www.paulosyibelo.com/2018/06/the-big-bad-wolf-xss-and-maintaining.html
+- **[XSS.png](https://github.com/LucaBongiorni/XSS.png)** — *article · intermediate · en, zh, jp · active*. Upstream ID: `xss-xss-png`. Archive: https://web.archive.org/web/20240930090310/https://github.com/LucaBongiorni/XSS.png
+- **[payloadbox/xss-payload-list](https://github.com/payloadbox/xss-payload-list)** — *article · intermediate · en, zh, jp · archived-only*. Upstream ID: `xss-payloadbox-xss-payload-list`. Archive: http://web.archive.org/web/20251215/https://github.com/payloadbox/xss-payload-list
+- **[クロスサイトスクリプティングの仕組みと攻撃を回避する７つの対策](https://blogs.mcafee.jp/cross-site-scripting-overview)** — *article · intermediate · jp · archived-only*. Upstream ID: `xss-entry`. Archive: http://web.archive.org/web/20180622043353/https://blogs.mcafee.jp/cross-site-scripting-overview

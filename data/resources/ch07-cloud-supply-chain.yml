@@ -1,0 +1,359 @@
+- id: owasp-docker-security-cheat-sheet
+  title: Docker Security Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences:
+  - developer
+  - tester
+  primary_topic: containers-kubernetes
+  related_topics:
+  - storage-secrets
+  - dependencies-artifacts
+  - web-server-proxies
+  tier: core
+  annotation: A container hardening baseline for web deployments using Docker. It emphasizes non-root execution, capability reduction, no-new-privileges, secrets handling, image pinning/signing/SBOMs, network exposure, logging and resource limits.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English Docker security sections inspected; no containers run.
+    evidence: The inspected content recommends running containers as unprivileged users, rootless mode, dropping capabilities and avoiding privileged mode, no-new-privileges, Docker Secrets, pinned images, COPY over ADD, image signing, SBOM generation, CI/CD scanning, avoiding docker.sock exposure, binding ports to localhost where appropriate, read-only filesystems and CPU/memory/process/file-descriptor limits.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+- id: owasp-kubernetes-security-cheat-sheet
+  title: Kubernetes Security Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/Kubernetes_Security_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: advanced
+  audiences:
+  - developer
+  - tester
+  primary_topic: containers-kubernetes
+  related_topics:
+  - cloud-iam
+  - storage-secrets
+  - cicd-security
+  - logging-detection
+  tier: core
+  annotation: A Kubernetes hardening guide for web-backed workloads. It covers API server/RBAC, namespaces, pod security, network policies, secrets, image controls, admission controllers, audit logging, etcd protection and credential rotation.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English Kubernetes security sections inspected; no cluster commands run.
+    evidence: The inspected content describes the API server as the control-plane front end, recommends RBAC with NodeRestriction, external auth such as OIDC/cloud IAM, namespaces for logical separation, Pod Security Standards, runAsNonRoot/readOnlyRootFilesystem, network policies because pods can talk by default, read-only secret volumes, etcd encryption, trusted registries, image scanning, admission controllers, audit logging and etcd mutual TLS/firewalling.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+- id: owasp-secrets-management-cheat-sheet
+  title: Secrets Management Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences:
+  - developer
+  - tester
+  primary_topic: storage-secrets
+  related_topics:
+  - cloud-iam
+  - cicd-security
+  - incident-remediation
+  - logging-detection
+  tier: core
+  annotation: A broad lifecycle guide for creating, storing, rotating, revoking, auditing and responding to exposed secrets. It is useful for cloud-backed web apps because secrets cross application code, deployment systems, CI/CD, cloud IAM and incident response.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English secrets-management sections inspected; no secrets accessed.
+    evidence: The inspected content defines creation/rotation/revocation/expiration lifecycle stages, recommends designated secrets managers rather than hardcoding, metadata for ownership and rotation, dynamic secrets and automated rotation, least-privilege access policies, avoiding adjacent encryption keys, CI/CD secrets options and hardening, 90-day queryable audit logs, tamper resistance and incident containment through revocation/rotation/deletion.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+- id: slsa-v1-1-about
+  title: SLSA v1.1 — About SLSA
+  url: https://slsa.dev/spec/v1.1/about
+  author: OpenSSF SLSA contributors
+  type: specification
+  language: en
+  difficulty: intermediate
+  audiences:
+  - developer
+  - tester
+  primary_topic: dependencies-artifacts
+  related_topics:
+  - cicd-security
+  - security-requirements
+  tier: core
+  annotation: A supply-chain security framework for reasoning about source, build, packaging and provenance. For this repository, it is most useful when explaining why build evidence and artifact provenance matter for web applications and deployment pipelines.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: SLSA v1.1 overview inspected; no tooling installed or configured.
+    evidence: The inspected content describes SLSA as incrementally adoptable supply-chain security guidelines, explains risk across source/build/packaging/distribution, frames provenance as tamper-resistant evidence of which build platform produced an artifact, defines Build Track levels 1-3, and notes that levels apply per artifact rather than transitively to all dependencies.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+- id: owasp-dependency-track
+  title: OWASP Dependency-Track
+  url: https://owasp.org/www-project-dependency-track/
+  author: OWASP Dependency-Track contributors
+  type: tool
+  language: en
+  difficulty: intermediate
+  audiences:
+  - developer
+  - tester
+  primary_topic: dependencies-artifacts
+  related_topics:
+  - cicd-security
+  - security-testing
+  tier: extended
+  annotation: A mature SBOM and component-risk tracking platform. It is a useful extended resource for teams operationalizing dependency visibility, vulnerability matching, policy enforcement and alerting across many projects, but it is a tool choice rather than foundational reading for every learner.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Public OWASP project page inspected; tool not installed or executed.
+    evidence: The inspected content describes Dependency-Track as an open-source platform to inventory components, find vulnerabilities and enforce policy; states it ingests CycloneDX SBOMs across project versions; matches components against sources such as NVD, GitHub Advisories, OSV, Snyk and Trivy; supports EPSS prioritization, policy engine enforcement, CI/CD SBOM ingestion, REST API/plugins, monitoring and integrations such as Jenkins, Jira, Slack and Teams.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+- id: owasp-github-actions-security-cheat-sheet
+  title: GitHub Actions Security Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/GitHub_Actions_Security_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences: [developer, tester]
+  primary_topic: cicd-security
+  related_topics: [dependencies-artifacts, storage-secrets, cloud-iam]
+  tier: core
+  annotation: >-
+    Practical hardening guidelines for GitHub Actions workflows. It addresses
+    high-risk triggers like pull_request_target, GITHUB_TOKEN write-permission
+    compromise, GitHub Actions cache poisoning, artifact tampering, runner
+    egress filtering, and unpinned third-party action vulnerabilities.
+  cost: free
+  access: public
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English GitHub Actions security sections inspected; no workflows executed.
+    evidence: >-
+      The inspected cheat sheet analyzes pull_request_target untrusted PR code
+      checkout vulnerabilities, GITHUB_TOKEN write permissions, GitHub Actions
+      Cache Poisoning risking production release tampering, action commit SHA
+      pinning, disabling cache in publishing workflows, and CodeQL workflow scanning.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: null
+
+- id: owasp-top-10-ci-cd-security-risks
+  title: OWASP Top 10 CI/CD Security Risks
+  url: https://owasp.org/www-project-top-10-ci-cd-security-risks/
+  author: OWASP Foundation
+  type: specification
+  language: en
+  difficulty: intermediate
+  audiences: [developer, tester]
+  primary_topic: cicd-security
+  related_topics: [dependencies-artifacts, storage-secrets, security-requirements]
+  tier: core
+  annotation: >-
+    The industry-standard risk taxonomy for continuous integration and delivery
+    ecosystems. It covers ten critical attack vectors including Insufficient
+    Flow Control Mechanisms, Poisoned Pipeline Execution (PPE), Dependency Chain
+    Abuse, Insufficient Credential Hygiene, and Artifact Integrity Validation
+    failures.
+  cost: free
+  access: public
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English project overview and risk taxonomy sections inspected; no build environments modified.
+    evidence: >-
+      The inspected project page defines the top 10 CI/CD risks: CICD-SEC-1
+      (Flow Control), CICD-SEC-2 (IAM), CICD-SEC-3 (Dependency Chain Abuse),
+      CICD-SEC-4 (Poisoned Pipeline Execution - PPE), CICD-SEC-5 (PBAC),
+      CICD-SEC-6 (Credential Hygiene), CICD-SEC-7 (System Config), CICD-SEC-8
+      (3rd Party Services), CICD-SEC-9 (Artifact Integrity), and CICD-SEC-10
+      (Logging & Visibility).
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: null
+
+- id: aws-ec2-imdsv2-guide
+  title: Configuring the Instance Metadata Service (IMDSv2)
+  url: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html
+  author: Amazon Web Services
+  type: documentation
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: metadata-serverless
+  related_topics: [cloud-iam, ssrf, storage-secrets]
+  tier: core
+  annotation: >-
+    Authoritative cloud documentation detailing the security architecture of AWS EC2
+    Instance Metadata Service Version 2 (IMDSv2). It explains how session-oriented requests,
+    mandatory PUT token generation, custom header requirements, and IP-level hop limit restrictions
+    mitigate Server-Side Request Forgery (SSRF), open reverse proxy bypasses, and unauthorized
+    metadata access.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English IMDSv2 configuration and security sections inspected; no cloud instances modified.
+    evidence: >-
+      The inspected AWS documentation contrasts IMDSv1 with session-oriented IMDSv2, details the
+      mandatory PUT request to /latest/api/token requiring X-aws-ec2-metadata-token-ttl-seconds,
+      explains rejection of PUT requests with X-Forwarded-For headers, details the default IP hop
+      limit of 1 to prevent container/proxy traversal, and documents enforcement options that require IMDSv2.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: null
+
+- id: owasp-secure-cloud-architecture-cheat-sheet
+  title: Secure Cloud Architecture Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/Secure_Cloud_Architecture_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences: [tester, developer]
+  primary_topic: cloud-iam
+  related_topics: [storage-secrets, metadata-serverless, secure-design]
+  tier: core
+  annotation: >-
+    An architectural guide for designing and reviewing cloud environments hosting web applications.
+    It details cloud IAM trust boundaries, least-privilege role assignment, isolating public from private
+    cloud components, securing object storage access patterns (IAM policies vs. pre-signed URLs vs. public storage),
+    and establishing rigorous threat models for cloud-native web services.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English cloud architecture and IAM sections inspected; no cloud services configured.
+    evidence: >-
+      The inspected cheat sheet establishes cloud threat modeling patterns; details object storage access models
+      evaluating IAM credentials against pre-signed URLs; and specifies principles for separating public ingress
+      from private backend services and managing cloud IAM permissions.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+- id: owasp-http-headers-cheat-sheet
+  title: HTTP Headers Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: beginner
+  audiences: [learner, tester, developer]
+  primary_topic: web-server-proxies
+  related_topics: [hardening-defaults, csp-clickjacking, web-standards]
+  tier: core
+  annotation: >-
+    An authoritative reference for hardening web servers, reverse proxies, and edge gateways using HTTP security headers.
+    It provides concise implementation recommendations for X-Frame-Options, X-Content-Type-Options (nosniff),
+    Strict-Transport-Security (HSTS), Content-Security-Policy (CSP), Referrer-Policy, and Permissions-Policy, explaining
+    how edge reverse proxies can uniformly inject baseline defenses across diverse application backends.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English HTTP response headers guidance inspected; no headers configured.
+    evidence: >-
+      The inspected cheat sheet documents recommended configurations for security response headers including
+      X-Frame-Options (DENY), X-Content-Type-Options (nosniff), HSTS, CSP frame-ancestors, and explains why legacy
+      headers like X-XSS-Protection should be explicitly disabled (X-XSS-Protection: 0).
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+- id: owasp-infrastructure-as-code-security-cheat-sheet
+  title: Infrastructure as Code Security Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/Infrastructure_as_Code_Security_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: infrastructure-code
+  related_topics: [cicd-security, storage-secrets, secure-design]
+  tier: core
+  annotation: >-
+    A practical guide for integrating security into Infrastructure as Code (IaC) templates and pipelines.
+    It covers static analysis of Terraform, CloudFormation, and Dockerfiles, automated secrets detection
+    in version control, least-privilege provisioning policies, immutable infrastructure deployment patterns,
+    and tagging strategies to prevent ghost cloud resources.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English IaC security lifecycle guidance inspected; no templates provisioned.
+    evidence: >-
+      The inspected cheat sheet outlines security best practices across develop, deploy, and runtime phases;
+      mandates static analysis (TFLint, Checkov) and secrets detection; emphasizes least-privilege IAM policies
+      for IaC runners; and details immutable infrastructure paradigms and asset tagging.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+

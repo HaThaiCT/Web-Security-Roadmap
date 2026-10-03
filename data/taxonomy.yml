@@ -1,0 +1,108 @@
+schema_version: 1
+chapters:
+  - id: ch01-foundations
+    title: Web Foundations & Standards
+    topics:
+      - {id: http, title: HTTP Requests, Responses & Versions}
+      - {id: dns-tls, title: DNS, TLS & PKI for the Web}
+      - {id: origins-cookies, title: Origins, Cookies & Browser Storage}
+      - {id: encoding-parsing, title: Encoding, Unicode & Parsing}
+      - {id: applied-crypto, title: Applied Cryptography for Web Developers}
+      - {id: web-standards, title: Web Standards & Security Reference Maps}
+  - id: ch02-web-architecture
+    title: Web/Software Architecture & Engineering
+    topics:
+      - {id: request-lifecycle, title: Request Lifecycle & Application Layers}
+      - {id: rendering-architectures, title: MPA, SPA, SSR, SSG & BFF}
+      - {id: distributed-components, title: Proxies, Caches & Distributed Components}
+      - {id: data-components, title: Databases, Storage, Queues & Workers}
+      - {id: parsing-templates, title: Serialization, Parsers & Template Engines}
+      - {id: identity-mechanics, title: Identity & State Mechanics}
+      - {id: integrations-concurrency, title: Integrations, Transactions & Concurrency}
+      - {id: build-deploy-basics, title: Dependencies, Builds & Deployment Basics}
+  - id: ch03-identity
+    title: Authentication, Authorization & Identity Security
+    topics:
+      - {id: passwords-recovery, title: Passwords, Authentication & Account Recovery}
+      - {id: sessions, title: Session & Cookie Security}
+      - {id: mfa-passkeys, title: MFA, Passkeys & WebAuthn}
+      - {id: authorization-idor, title: Access Control, IDOR & BOLA}
+      - {id: tenant-isolation, title: Multi-Tenant Isolation & Delegated Access}
+      - {id: jwt, title: JWT & Token Validation}
+      - {id: oauth-oidc, title: OAuth & OpenID Connect}
+      - {id: saml-scim, title: SAML, SCIM & Enterprise SSO}
+  - id: ch04-vulnerabilities
+    title: Vulnerability Classes & Root Causes
+    topics:
+      - {id: sql-nosql, title: SQL & NoSQL Injection}
+      - {id: ldap-xpath, title: LDAP & XPath Injection}
+      - {id: command-injection, title: Command & Expression Injection}
+      - {id: ssti, title: Server-Side Template Injection}
+      - {id: deserialization, title: Insecure Deserialization}
+      - {id: prototype-mass-assignment, title: Prototype Pollution & Mass Assignment}
+      - {id: xxe, title: XML External Entities}
+      - {id: upload-documents, title: File Upload & Document Processing}
+      - {id: traversal-inclusion, title: Path Traversal & File Inclusion}
+      - {id: ssrf, title: SSRF & URL Processing}
+      - {id: information-errors, title: Information Disclosure & Exceptional Conditions}
+      - {id: business-logic, title: Business Logic & Workflow Integrity}
+      - {id: race-conditions, title: Race Conditions}
+  - id: ch05-browser-protocols
+    title: Browser, Client & Protocol Security
+    topics:
+      - {id: xss, title: Reflected, Stored & DOM XSS}
+      - {id: csrf, title: Cross-Site Request Forgery}
+      - {id: cors, title: Cross-Origin Resource Sharing}
+      - {id: csp-clickjacking, title: CSP, Trusted Types & Clickjacking}
+      - {id: postmessage-dom, title: postMessage & Client-Side Data Flows}
+      - {id: extensions-workers, title: Extensions, Service Workers, PWA & WebViews}
+      - {id: browser-internals, title: Practical Browser Security Internals}
+      - {id: http-smuggling, title: HTTP Request Smuggling}
+      - {id: web-caching, title: Cache Poisoning & Cache Deception}
+      - {id: headers-redirects, title: Host Headers, Response Splitting & Redirects}
+      - {id: dns-rebinding, title: DNS Rebinding}
+      - {id: realtime-protocols, title: WebSocket, SSE & WebRTC Security}
+  - id: ch06-api-frameworks
+    title: API, Framework & Application Ecosystem Security
+    topics:
+      - {id: rest-openapi, title: REST, OpenAPI & API Inventory}
+      - {id: graphql, title: GraphQL Security}
+      - {id: grpc-soap, title: gRPC, SOAP & RPC Security}
+      - {id: frontend-bff, title: SPA, SSR & BFF Security}
+      - {id: framework-security, title: Runtime, Framework & CMS Security}
+      - {id: backend-integrations, title: Databases, Search & Queue Integration Security}
+      - {id: webhooks-saas, title: Webhooks & SaaS Integrations}
+      - {id: payments-workflows, title: Payment, Checkout & Subscription Workflows}
+  - id: ch07-cloud-supply-chain
+    title: Cloud, Deployment & Supply Chain Security
+    topics:
+      - {id: cloud-iam, title: Cloud IAM & Application Trust Boundaries}
+      - {id: storage-secrets, title: Object Storage & Secrets}
+      - {id: metadata-serverless, title: Metadata Services & Serverless}
+      - {id: web-server-proxies, title: Web Servers & Reverse Proxy Hardening}
+      - {id: containers-kubernetes, title: Containers & Kubernetes}
+      - {id: infrastructure-code, title: Infrastructure as Code}
+      - {id: cicd-security, title: CI/CD Permissions & Pipeline Security}
+      - {id: dependencies-artifacts, title: Dependencies, SBOM, Signing & Provenance}
+  - id: ch08-emerging-practice
+    title: Emerging Web Risks, Privacy & Practical Testing
+    topics:
+      - {id: ai-web-security, title: AI-Enabled Web Applications & Tool Permissions}
+      - {id: rag-isolation, title: RAG, Vector Stores & Data Isolation}
+      - {id: privacy-leakage, title: Privacy, Tracking & Browser Data Leakage}
+      - {id: side-channels, title: Practical Web Side Channels}
+      - {id: abuse-resilience, title: Abuse Prevention & Resilience}
+      - {id: testing-methodology, title: Authorized Testing Methodology}
+      - {id: evidence-disclosure, title: Evidence, Reporting & Responsible Disclosure}
+      - {id: practice-labs, title: Labs, CTF & Practical Case Studies}
+  - id: ch09-security-engineering
+    title: Security Architecture & Engineering
+    topics:
+      - {id: threat-modeling, title: Threat Modeling & Abuse Cases}
+      - {id: security-requirements, title: Security Requirements & Verification Standards}
+      - {id: secure-design, title: Secure Design Patterns & Architectural Trade-Offs}
+      - {id: secure-code-review, title: Secure Coding & Code Review}
+      - {id: security-testing, title: SAST, DAST, IAST, SCA & Fuzzing}
+      - {id: hardening-defaults, title: Hardening & Secure Defaults}
+      - {id: logging-detection, title: Application Logging & Detection}
+      - {id: incident-remediation, title: Incident Response & Remediation Verification}

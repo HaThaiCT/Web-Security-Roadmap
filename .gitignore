@@ -1,0 +1,30 @@
+# Local assistant configuration and session data
+.claude/
+
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Local secrets and credentials
+.env
+.env.*
+!.env.example
+!.env.sample
+.netrc
+.npmrc
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Temporary files and editor state
+*.log
+*.tmp
+*.swp
+*~
+.DS_Store
+.idea/
+.vscode/

@@ -1,0 +1,292 @@
+- id: mdn-practical-security-implementation-guides
+  title: Practical security implementation guides
+  url: https://developer.mozilla.org/en-US/docs/Web/Security/Practical_implementation_guides
+  author: MDN contributors
+  type: documentation
+  language: en
+  difficulty: intermediate
+  audiences: [developer, tester]
+  primary_topic: hardening-defaults
+  related_topics:
+    - dns-tls
+    - sessions
+    - csrf
+    - cors
+    - csp-clickjacking
+    - privacy-leakage
+    - secure-design
+    - security-requirements
+  tier: core
+  annotation: >-
+    A developer-facing index of practical web security controls, especially
+    transport security and browser-facing headers. It is valuable as a bridge
+    between vulnerability knowledge and implementation because it prioritizes
+    controls such as HTTPS resource loading, HTTPS redirection, HSTS,
+    clickjacking prevention, secure cookies, CORS, CSP, Referrer-Policy and
+    Subresource Integrity. Treat it as an implementation checklist and then
+    read the linked deep guides for each control.
+  cost: free
+  access: public
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Public English index page and control table inspected; linked sub-guides not exhaustively inspected in this batch.
+    evidence: >-
+      The inspected page links practical guides to Mozilla HTTP Observatory,
+      orders controls by recommended priority, and identifies TLS
+      configuration/resource loading/redirection, HSTS, clickjacking
+      prevention, CSRF prevention, secure cookies, CORP, CSP, CORS,
+      Referrer-Policy, robots.txt and SRI with impact/difficulty metadata.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: null
+
+- id: owasp-application-security-verification-standard
+  title: Application Security Verification Standard
+  url: https://owasp.org/www-project-application-security-verification-standard/
+  author: OWASP ASVS contributors
+  type: specification
+  language: en
+  difficulty: intermediate
+  audiences: [developer, tester]
+  primary_topic: security-requirements
+  related_topics: [security-testing, secure-design, secure-code-review, hardening-defaults]
+  tier: core
+  annotation: >-
+    A structured requirements and verification standard for web application
+    security controls. It is useful when converting vulnerability knowledge
+    into measurable engineering requirements, review checklists and assurance
+    levels. Use versioned requirement references so notes and tests remain
+    clear as ASVS evolves.
+  cost: free
+  access: public
+  verification:
+    status: public-excerpt-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Public OWASP project page inspected; full standard documents not exhaustively inspected in this batch.
+    evidence: >-
+      The inspected project page describes ASVS as a structured requirements
+      list for secure development and application security verification,
+      explains its goal of normalizing security verification rigor, states
+      that requirements use chapter.section.requirement numbering, recommends
+      versioned references, and notes available CSV/JSON formats and latest
+      stable release v5.0.0.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: 'Latest stable release noted by project page: v5.0.0.'
+
+- id: payloadsallthethings-repository
+  title: PayloadsAllTheThings
+  url: https://github.com/swisskyrepo/PayloadsAllTheThings
+  author: Swissky and contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences: [tester, developer]
+  primary_topic: security-testing
+  related_topics: [sql-nosql, xss, command-injection, ssti, deserialization, race-conditions]
+  tier: extended
+  annotation: >-
+    An extensive collection of practical web application security payloads, bypasses,
+    and vulnerability cheat sheets across dozens of bug classes. It serves as a rapid
+    reference for authorized penetration testers and security engineers reviewing input
+    handling filters, demonstrating how parsers and runtime environments interpret boundary
+    cases.
+  cost: free
+  access: public
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Repository structure, READMEs, and methodology sections inspected; no payloads executed.
+    evidence: >-
+      The inspected GitHub repository documents structured methodology, bypass sequences,
+      and payload lists across SQLi, NoSQLi, Command Injection, Directory Traversal,
+      SSTI, Deserialization, Race Conditions, Request Smuggling, and Prompt Injection,
+      accompanied by tool references and security research citations.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: null
+
+- id: owasp-threat-modeling-cheat-sheet
+  title: Threat Modeling Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/Threat_Modeling_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences: [developer, tester]
+  primary_topic: threat-modeling
+  related_topics: [secure-design, security-requirements, testing-methodology]
+  tier: core
+  annotation: >-
+    A structured guide to integrating threat modeling across the software development
+    lifecycle. Grounded in the Threat Modeling Manifesto's four core questions (What
+    are we working on? What can go wrong? What are we going to do about it? Did we
+    do a good enough job?), it details system decomposition via Data Flow Diagrams
+    (DFDs), threat identification using STRIDE per element, and risk mitigation
+    strategies.
+  cost: free
+  access: public
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English threat modeling cheat sheet sections inspected; no external threat model files processed.
+    evidence: >-
+      The inspected cheat sheet structures threat modeling around the four manifesto
+      questions, details application decomposition via Data Flow Diagrams (DFDs),
+      explores STRIDE (Spoofing, Tampering, Repudiation, Information Disclosure, Denial
+      of Service, Elevation of Privilege) mapped to desirable security attributes,
+      outlines responses (Mitigate, Eliminate, Transfer, Accept), and aligns with
+      NIST SP 800-218 and ASVS.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: null
+
+- id: owasp-secure-product-design-cheat-sheet
+  title: Secure Product Design Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/Secure_Product_Design_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences: [developer, tester]
+  primary_topic: secure-design
+  related_topics: [threat-modeling, security-requirements, hardening-defaults]
+  tier: core
+  annotation: >-
+    An actionable architectural reference for designing secure software products from conception
+    through production. Grounded in core principles—Least Privilege, Separation of Duties,
+    Defense-in-Depth, Zero Trust, and Security-in-the-Open—it outlines concrete design practices
+    across five focus areas (Context, Components, Connections, Code, and Configuration) to establish
+    secure defaults and fail-safe behaviors.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English secure product design cheat sheet sections inspected; no design artifacts created.
+    evidence: >-
+      The inspected cheat sheet establishes 4 foundational principles (Least Privilege & Separation of Duties,
+      Defense-in-Depth, Zero Trust, Security-in-the-Open), structures review across 5 areas (Context,
+      Components, Connections, Code, Configuration), mandates secure default configurations, requires
+      fail-safe exception handling, and emphasizes continuous evolutionary security design throughout the SDLC.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: null
+
+- id: owasp-secure-code-review-cheat-sheet
+  title: Secure Code Review Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/Secure_Code_Review_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences: [tester, developer]
+  primary_topic: secure-code-review
+  related_topics: [security-testing, secure-design, encoding-parsing]
+  tier: core
+  annotation: >-
+    A comprehensive guide for conducting manual and hybrid security code reviews. It contrasts comprehensive
+    baseline code reviews with incremental diff-based pull request reviews, establishes review methodologies
+    focusing on high-risk business logic and data flow sinks that automated SAST tools miss, and outlines practical
+    checklists for validating authentication, authorization, and input validation code paths.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English secure code review methodology and checklist sections inspected; no code reviewed.
+    evidence: >-
+      The inspected cheat sheet defines baseline vs. diff-based review scopes; details manual review techniques
+      complementing automated SAST; outlines preparation steps (threat models, architecture analysis); and provides
+      systematic review workflows for identifying business logic flaws, authorization gaps, and injection sinks.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+- id: owasp-logging-cheat-sheet
+  title: Logging Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: logging-detection
+  related_topics: [incident-remediation, information-errors, hardening-defaults]
+  tier: core
+  annotation: >-
+    A practical guide for implementing application-level security event logging and detection capabilities.
+    It distinguishes operational debugging from security audit logging, defines essential security events to record
+    (authentication attempts, access control failures, input validation rejections, session state changes), mandates
+    log sanitization to prevent log injection and sensitive PII/credential leakage, and covers log integrity controls.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English application logging and security monitoring guidance inspected; no log events emitted.
+    evidence: >-
+      The inspected cheat sheet differentiates security logging from operational debugging; details what to log
+      (authentication, authorization, session changes, validation errors); lists sensitive data that must never be
+      logged (passwords, tokens, PII); and covers defenses against log injection and log tampering.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+- id: owasp-virtual-patching-cheat-sheet
+  title: Virtual Patching Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/Virtual_Patching_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences: [tester, developer]
+  primary_topic: incident-remediation
+  related_topics: [logging-detection, web-server-proxies, secure-design]
+  tier: core
+  annotation: >-
+    A concise framework for rapid vulnerability mitigation during active incident response and zero-day disclosures.
+    It explains how security policy enforcement layers (WAFs, reverse proxy filters) intercept exploit attempts in transit
+    to buy critical remediation time while developers write, test, and deploy permanent source code fixes.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English virtual patching methodology and WAF filter sections inspected; no traffic intercepted.
+    evidence: >-
+      The inspected cheat sheet defines virtual patching as policy enforcement intercepting exploit attempts;
+      explains how virtual patching complements rather than replaces source code fixes; details time-to-fix and
+      attack surface reduction metrics; and provides an incident response virtual patching methodology using WAF rules.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+

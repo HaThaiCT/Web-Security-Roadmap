@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "source_url": "https://raw.githubusercontent.com/qazbnm456/awesome-web-security/master/data/index.json",
+  "fetched_at": "2026-10-02T17:21:14.804703+00:00",
+  "sha256": "4572fae8b1b3d132819dc6c104f5ce4c8fba1bf68748e22afea8618108d23b33",
+  "category_count": 100,
+  "entry_count": 535,
+  "duplicate_entry_ids": [],
+  "note": "Full upstream snapshot preservation. Presence here is provenance, not project curation or verification."
+}

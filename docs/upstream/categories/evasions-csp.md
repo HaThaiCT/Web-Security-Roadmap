@@ -1,0 +1,13 @@
+<!-- GENERATED FILE: do not edit by hand. Run scripts/generate.py. -->
+# CSP
+
+Upstream category key: `evasions-csp`
+
+- **[Any protection against dynamic module import?](https://github.com/w3c/webappsec-csp/issues/243)** — *article · intermediate · en, zh, jp · active*. Upstream ID: `evasions-csp-any-protection-against-dynamic-module-import`. Archive: https://web.archive.org/web/20250119133336/https://github.com/w3c/webappsec-csp/issues/243
+- **[CSP: bypassing form-action with reflected XSS](https://labs.detectify.com/2016/04/04/csp-bypassing-form-action-with-reflected-xss/)** — *article · intermediate · en, zh, jp · active*. Upstream ID: `evasions-csp-csp-bypassing-form-action-with-reflected-xss`. Archive: https://web.archive.org/web/20170115091948/https://labs.detectify.com/2016/04/04/csp-bypassing-form-action-with-reflected-xss/
+- **[Evading CSP with DOM-based dangling markup](https://portswigger.net/blog/evading-csp-with-dom-based-dangling-markup)** — *article · intermediate · en, zh, jp · active*. Upstream ID: `evasions-csp-evading-csp-with-dom-based-dangling-markup`. Archive: https://web.archive.org/web/20190904194351/https://portswigger.net/blog/evading-csp-with-dom-based-dangling-markup
+- **[GitHub's CSP journey](https://github.blog/2016-04-12-githubs-csp-journey/)** — *article · intermediate · en, zh, jp · active*. Upstream ID: `evasions-csp-githubs-csp-journey`. Archive: https://web.archive.org/web/20240522041731/https://github.blog/2016-04-12-githubs-csp-journey/
+- **[GitHub's post-CSP journey](https://github.blog/2017-01-19-githubs-post-csp-journey/)** — *article · intermediate · en, zh, jp · active*. Upstream ID: `evasions-csp-githubs-post-csp-journey`. Archive: https://web.archive.org/web/20230526141732/https://github.blog/2017-01-19-githubs-post-csp-journey/
+- **[Neatly bypassing CSP](https://lab.wallarm.com/how-to-trick-csp-in-letting-you-run-whatever-you-want-73cb5ff428aa)** — *article · intermediate · en, zh, jp · active*. Upstream ID: `evasions-csp-neatly-bypassing-csp`. Archive: https://web.archive.org/web/20251212193246/https://lab.wallarm.com/how-to-trick-csp-in-letting-you-run-whatever-you-want-73cb5ff428aa
+- **[TWITTER XSS + CSP BYPASS](https://www.paulosyibelo.com/2017/05/twitter-xss-csp-bypass.html)** — *article · intermediate · en, zh, jp · active*. Upstream ID: `evasions-csp-twitter-xss-csp-bypass`. Archive: https://web.archive.org/web/20250324143901/https://www.paulosyibelo.com/2017/05/twitter-xss-csp-bypass.html
+- **[那些年我们绕过的CSP](http://heartsky.info/2017/03/03/那些年我们绕过的CSP)** — *article · intermediate · zh · dead*. Upstream ID: `evasions-csp-csp`.

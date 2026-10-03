@@ -1,0 +1,498 @@
+- id: owasp-sql-injection-prevention-cheat-sheet
+  title: SQL Injection Prevention Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: beginner
+  audiences: [learner, tester, developer]
+  primary_topic: sql-nosql
+  related_topics: [data-components, secure-code-review, security-testing]
+  tier: core
+  annotation: >-
+    A primary baseline for understanding and preventing SQL injection. It
+    explains why prepared statements separate code from data, where stored
+    procedures can still be risky, when allow-list validation is needed for
+    identifiers such as table or column names, and why escaping is a last
+    resort. Developers should pair it with framework-specific database APIs;
+    testers should use it to reason about root cause and remediation quality.
+  cost: free
+  access: public
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English SQL injection prevention sections inspected; no exploit code executed.
+    evidence: >-
+      The inspected content ranks prepared statements, safely implemented
+      stored procedures, allow-list validation and escaping; explains that
+      parameterized queries preserve code/data separation; warns dynamic SQL
+      inside stored procedures reintroduces risk; and recommends least
+      privilege, separate database users and SQL views to limit impact.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: null
+
+- id: owasp-ssrf-prevention-cheat-sheet
+  title: Server Side Request Forgery Prevention Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: ssrf
+  related_topics: [cloud-iam, metadata-serverless, rest-openapi, web-server-proxies]
+  tier: core
+  annotation: >-
+    A practical defensive baseline for SSRF and URL-processing risk. It separates
+    allowlisted internal destinations from open external fetch features, explains
+    why deny-lists and parser assumptions are fragile, and connects application
+    validation to network-layer egress controls and cloud metadata protection.
+  cost: free
+  access: public
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English SSRF prevention sections inspected; no exploit code executed.
+    evidence: >-
+      The inspected content covers application-layer input validation for
+      strings, IP addresses, domain names and URLs; recommends allowlists over
+      deny-lists; warns about parser disagreement, DNS pinning and redirects;
+      discusses cloud metadata endpoints including AWS IMDSv2; and recommends
+      network segmentation and egress firewall controls.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: null
+
+- id: owasp-os-command-injection-defense-cheat-sheet
+  title: OS Command Injection Defense Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: command-injection
+  related_topics: [parsing-templates, secure-code-review, security-testing]
+  tier: core
+  annotation: >-
+    A concise guide to command and argument injection defenses. It emphasizes
+    replacing shell calls with native APIs, separating commands from arguments,
+    layering parameterization with allow-list validation and using least
+    privilege so command execution bugs have less impact.
+  cost: free
+  access: public
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English OS command injection defense sections inspected; no exploit code executed.
+    evidence: >-
+      The inspected content defines command injection and argument injection,
+      recommends built-in library functions over shell commands, discusses
+      OS-specific escaping as a weaker defense, recommends parameterization plus
+      input validation, gives allow-list validation guidance, mentions POSIX --
+      delimiter behavior, and points Java readers toward ProcessBuilder-style
+      separated command arguments.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: null
+
+- id: owasp-file-upload-cheat-sheet
+  title: File Upload Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: upload-documents
+  related_topics: [storage-secrets, traversal-inclusion, information-errors]
+  tier: core
+  annotation: >-
+    A defensive baseline for accepting user-supplied files without treating file
+    extension or Content-Type as sufficient proof of safety. It is useful for
+    developers and testers because it ties upload validation, filename handling,
+    storage location, permissions, content processing and size limits into one
+    review model.
+  cost: free
+  access: public
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English file upload security sections inspected; no exploit code executed.
+    evidence: >-
+      The inspected content recommends extension allowlists, warns about double
+      extensions, null bytes and case tricks, says Content-Type headers are
+      user-controlled and spoofable, discusses file signature and content
+      validation, recommends server-generated filenames, storage outside the
+      webroot or on a separate host, least-privilege filesystem permissions,
+      authorization around uploaded content and limits for request size and ZIP
+      bombs.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: null
+
+- id: owasp-deserialization-cheat-sheet
+  title: Deserialization Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: deserialization
+  related_topics: [parsing-templates, secure-code-review, security-testing]
+  tier: core
+  annotation: >-
+    A comprehensive guide to insecure deserialization risks and mitigations across
+    Java, Python, PHP, and .NET. It details native serialization signatures,
+    gadget chain mechanics that escalate deserialization into remote code
+    execution or DoS, and defense strategies including safe serialization
+    formats, class allowlisting, and library hardening.
+  cost: free
+  access: public
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English deserialization sections inspected; no exploit payloads executed.
+    evidence: >-
+      The inspected content documents Java ObjectInputStream signatures and gadget
+      chains, Python pickle and unsafe YAML loaders, .NET BinaryFormatter and
+      TypeNameHandling risks, PHP unserialize vulnerabilities, safe alternatives
+      such as pure JSON, and defensive controls like resolveClass allowlisting,
+      DTO patterns, and payload signing.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: null
+
+- id: owasp-xxe-prevention-cheat-sheet
+  title: XML External Entity Prevention Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: xxe
+  related_topics: [parsing-templates, secure-code-review, information-errors]
+  tier: core
+  annotation: >-
+    A definitive reference for preventing XML External Entity (XXE) vulnerabilities
+    across diverse parsers in Java, .NET, PHP, and Python. It explains how external
+    DTDs and entities enable file disclosure, SSRF, and parser denial of service,
+    and provides explicit, copy-pasteable configuration flags to disable external
+    entity resolution and DTD processing.
+  cost: free
+  access: public
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English XXE prevention sections inspected; no XML payloads parsed.
+    evidence: >-
+      The inspected content covers DTD and external entity attack mechanics including
+      file disclosure, SSRF, and Billion Laughs DoS, provides JAXP DocumentBuilderFactory
+      and SAXParserFactory secure feature flags (disallow-doctype-decl, FEATURE_SECURE_PROCESSING),
+      .NET DtdProcessing prohibition, PHP libxml entity loader settings, and defusedxml
+      recommendations for Python.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: null
+
+- id: portswigger-server-side-template-injection
+  title: Server-Side Template Injection
+  url: https://portswigger.net/web-security/server-side-template-injection
+  author: PortSwigger Web Security Academy
+  type: documentation
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: ssti
+  related_topics: [parsing-templates, practice-labs, command-injection]
+  tier: core
+  annotation: >-
+    A foundational guide to Server-Side Template Injection (SSTI) covering detection,
+    identification of template engines, and exploitation risks up to remote code
+    execution. It provides polyglot probe strings, mathematical expression tests to
+    differentiate engines (e.g. Jinja2 vs. Twig), and key defense patterns such
+    as logic-less templates and sandboxed rendering.
+  cost: free
+  access: public
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English SSTI guidance sections inspected; no template expressions executed.
+    evidence: >-
+      The inspected content explains how concatenating user input directly into template
+      strings creates SSTI, gives polyglot detection strings and mathematical expression
+      decision trees distinguishing engines like Twig and Jinja2, notes severe impact
+      including RCE and arbitrary file read, and recommends logic-less template engines
+      and sandboxing.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: null
+
+- id: portswigger-smashing-the-state-machine
+  title: 'Smashing the state machine: the true potential of web race conditions'
+  url: https://portswigger.net/research/smashing-the-state-machine
+  author: James Kettle (PortSwigger)
+  type: article
+  language: en
+  difficulty: advanced
+  audiences: [learner, tester, developer]
+  primary_topic: race-conditions
+  related_topics: [integrations-concurrency, business-logic, practice-labs]
+  tier: core
+  annotation: >-
+    Groundbreaking research demonstrating novel web race condition classes beyond
+    basic limit-overruns, introducing the HTTP/2 single-packet attack to eliminate
+    network jitter and synchronize requests within sub-millisecond windows. It covers
+    multi-endpoint collisions, transient sub-states, and database-level atomic
+    defensive architecture.
+  cost: free
+  access: public
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English research paper and methodology sections inspected; no live targets tested.
+    evidence: >-
+      The inspected paper details the single-packet attack utilizing HTTP/2 frames and
+      Nagle's algorithm to complete requests within a ~1ms window, explores multi-endpoint
+      collisions on shared state (e.g. email change race conditions), outlines a
+      Predict-Probe-Prove methodology, and establishes defensive requirements including
+      database transactions, datastore integrity constraints, and avoiding mixed-source state.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: 'Published August 2023; presented at Black Hat USA 2023 and DEF CON 31.'
+
+- id: owasp-nosql-security-cheat-sheet
+  title: NoSQL Security Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/NoSQL_Security_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: sql-nosql
+  related_topics: [data-components, secure-code-review, security-testing]
+  tier: core
+  annotation: >-
+    A practical defensive guide addressing NoSQL injection risks across document
+    and key-value datastores like MongoDB and CouchDB. It breaks down operator
+    injection ($ne, $gt, $regex), server-side JavaScript execution via $where,
+    and details core defenses including strict type casting, disallowing client-supplied
+    operator objects, and using safe driver query builders.
+  cost: free
+  access: public
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English NoSQL security sections inspected; no database queries executed.
+    evidence: >-
+      The inspected cheat sheet documents dangerous string-based query assembly and
+      eval() patterns in Node.js/MongoDB, explains operator injection via client-supplied
+      JSON fragments or query-string brackets, warns against $where server-side script
+      execution, and prescribes defensive controls: rejecting keys starting with $,
+      strict schema validation (Joi/Zod), type enforcement, and driver parameterization.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: null
+
+- id: portswigger-file-path-traversal
+  title: File Path Traversal
+  url: https://portswigger.net/web-security/file-path-traversal
+  author: PortSwigger Web Security Academy
+  type: documentation
+  language: en
+  difficulty: beginner
+  audiences: [learner, tester, developer]
+  primary_topic: traversal-inclusion
+  related_topics: [upload-documents, storage-secrets, secure-code-review]
+  tier: core
+  annotation: >-
+    A clear guide to path traversal vulnerabilities that allow reading or writing
+    arbitrary files on the server filesystem. It covers dot-dot-slash (../) directory
+    navigation, common filter bypasses such as nested sequences and URL encoding,
+    and establishes canonical path verification as the primary defense.
+  cost: free
+  access: public
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English path traversal tutorial sections inspected; no filesystem payloads executed.
+    evidence: >-
+      The inspected content defines path traversal mechanics, details common bypass
+      techniques including nested traversal sequences (....//), standard and double
+      URL encoding (%2e%2e%2f), absolute path overrides, and null byte injection on
+      legacy runtimes, and recommends resolving canonical paths and verifying they start
+      with the expected base directory.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: null
+
+- id: portswigger-prototype-pollution
+  title: Prototype Pollution
+  url: https://portswigger.net/web-security/prototype-pollution
+  author: PortSwigger Web Security Academy
+  type: documentation
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: prototype-mass-assignment
+  related_topics: [xss, secure-code-review, framework-security]
+  tier: core
+  annotation: >-
+    A comprehensive resource on JavaScript prototype pollution covering both client-side
+    and server-side exploit mechanics. It explains how polluting Object.prototype via
+    recursive merge or property assignment injects properties across the runtime,
+    escalating to DOM XSS via client gadgets or remote code execution via Node.js
+    child process child_process.fork options.
+  cost: free
+  access: public
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English prototype pollution sections inspected; no script payloads executed.
+    evidence: >-
+      The inspected content breaks prototype pollution down into sources (query parameters,
+      JSON bodies), sinks (object merge/clone utilities), and gadgets (uninitialized properties
+      read in sensitive contexts), covers server-side RCE in Node.js via NODE_OPTIONS, and
+      details defenses: Object.create(null), Object.freeze(Object.prototype), and key validation.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: null
+
+- id: owasp-business-logic-security-cheat-sheet
+  title: Business Logic Security Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/Business_Logic_Security_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: business-logic
+  related_topics: [race-conditions, payments-workflows, authorization-idor, threat-modeling]
+  tier: core
+  annotation: >-
+    A practical guide for preventing business logic flaws and workflow subversion.
+    It details strategies for enforcing application domain invariants, validating multi-step
+    state transitions, maintaining integrity across transactional operations (e.g. pricing,
+    coupons, quantity limits), and designing state machines that resist parameter manipulation
+    and sequence bypasses.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English business logic security guidance inspected; no workflows tested.
+    evidence: >-
+      The inspected cheat sheet establishes domain model invariants, covers multi-step process
+      validation, prevents parameter tampering across checkout and checkout steps, mandates
+      server-side validation of client-supplied pricing or discount parameters, requires state
+      machine enforcement to prevent out-of-order execution, and emphasizes concurrency protection.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+- id: owasp-ldap-injection-prevention-cheat-sheet
+  title: LDAP Injection Prevention Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/LDAP_Injection_Prevention_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: ldap-xpath
+  related_topics: [sql-nosql, secure-code-review, security-testing]
+  tier: core
+  annotation: >-
+    A focused reference on preventing LDAP injection vulnerabilities in directory queries.
+    It analyzes LDAP search filter syntax (prefix Polish notation) and Distinguished Name (DN)
+    hierarchies, distinguishes filter encoding from DN encoding requirements, and outlines
+    defensive frameworks, parameterized filter abstractions, and least-privilege binding.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English LDAP injection defense sections inspected; no queries executed.
+    evidence: >-
+      The inspected cheat sheet explains LDAP injection risks where search filters are concatenated
+      from user input, separates DN encoding special characters from search filter characters,
+      documents parameterized search filters in Java and .NET (RFC 4515 / RFC 2253 encoders),
+      and recommends least privilege binding accounts and strict allow-list input validation.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+- id: owasp-error-handling-cheat-sheet
+  title: Error Handling Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/Error_Handling_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: beginner
+  audiences: [learner, tester, developer]
+  primary_topic: information-errors
+  related_topics: [logging-detection, secure-code-review, secure-design]
+  tier: core
+  annotation: >-
+    A practical guide for preventing information disclosure through unhandled exceptions and error messages.
+    It explains how stack traces, framework version banners, database errors, and filesystem paths leaked
+    in responses aid attacker reconnaissance and reveal injection sinks, and outlines patterns for global
+    exception handlers, generic error responses, and secure internal diagnostic logging.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English error handling guidance inspected; no exceptions triggered.
+    evidence: >-
+      The inspected cheat sheet demonstrates how stack traces expose Struts/Tomcat versions, SQL syntax
+      errors, and local filesystem paths; mandates returning generic, sanitized error responses to clients;
+      and details configuring centralized global exception handlers across application frameworks.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+

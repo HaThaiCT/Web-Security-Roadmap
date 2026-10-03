@@ -1,0 +1,306 @@
+- id: owasp-rest-security-cheat-sheet
+  title: REST Security Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences:
+  - tester
+  - developer
+  primary_topic: rest-openapi
+  related_topics:
+  - jwt
+  - oauth-oidc
+  - cors
+  - logging-detection
+  - security-testing
+  tier: core
+  annotation: A practical checklist for REST services covering HTTPS, authentication, local authorization, JWT validation, API keys, input/content-type validation, status codes, CORS, rate limiting and audit logging. It is a good bridge from general web vulnerabilities to API-specific implementation and review work.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English REST security sections inspected; no API requests sent.
+    evidence: The inspected content requires HTTPS-only endpoints, local access control on non-public APIs, central IdP access tokens, rejecting unsigned JWTs, verifying iss/aud/exp/nbf, denylisting jti on logout, not relying exclusively on API keys, validating length/range/format/type, rejecting oversized payloads, avoiding stack traces and logging token-validation failures.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+- id: owasp-graphql-cheat-sheet
+  title: GraphQL Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/GraphQL_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences:
+  - tester
+  - developer
+  primary_topic: graphql
+  related_topics:
+  - authorization-idor
+  - abuse-resilience
+  - security-testing
+  - information-errors
+  tier: core
+  annotation: A GraphQL-specific security baseline covering schema-driven validation, query depth/amount limits, batching abuse, authorization on edges and nodes, introspection controls and error handling. It is useful because GraphQL concentrates many API risks into fewer network requests and resolver paths.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English GraphQL security sections inspected; no API requests sent.
+    evidence: The inspected content recommends GraphQL-native types, mutation input schemas and allowlisted characters; notes GraphQL lacks native depth/object-count limits; covers timeout, query cost, rate limiting and resource controls; warns batching can bypass WAFs/rate limits; requires authorization on every request including edges and nodes; and recommends disabling introspection/GraphiQL and production stack traces.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+- id: owasp-api-security-top-10-2023
+  title: OWASP API Security Top 10 2023
+  url: https://api-security.owasp.org/editions/2023/en/0x11-t10
+  author: OWASP API Security Project contributors
+  type: documentation
+  language: en
+  difficulty: beginner
+  audiences:
+  - learner
+  - tester
+  - developer
+  primary_topic: rest-openapi
+  related_topics:
+  - authorization-idor
+  - graphql
+  - ssrf
+  - business-logic
+  - abuse-resilience
+  tier: core
+  annotation: A high-level risk map for API work. It is not a control guide by itself, but it helps learners and teams orient around object-level authorization, authentication, property-level authorization, resource consumption, function-level authorization, sensitive business flows, SSRF, misconfiguration, inventory and unsafe third-party API consumption.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Published OWASP API Security Top 10 2023 table inspected; no API testing performed.
+    evidence: 'The inspected content lists API1 through API10 for the 2023 edition: Broken Object Level Authorization, Broken Authentication, Broken Object Property Level Authorization, Unrestricted Resource Consumption, Broken Function Level Authorization, Unrestricted Access to Sensitive Business Flows, SSRF, Security Misconfiguration, Improper Inventory Management and Unsafe Consumption of APIs.'
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+- id: stripe-webhook-security-guide
+  title: Stripe Webhook Signatures & Security
+  url: https://stripe.com/docs/webhooks
+  author: Stripe Developer Documentation
+  type: documentation
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: webhooks-saas
+  related_topics: [payments-workflows, applied-crypto, rest-openapi]
+  tier: core
+  annotation: >-
+    An industry-standard implementation guide for securing incoming webhook endpoints.
+    It details cryptographic HMAC signature verification (Stripe-Signature header) computed
+    over the unparsed raw request payload, replay attack defense using signed timestamps
+    and tolerance windows, constant-time comparison to prevent timing leaks, and idempotency
+    to safely process duplicate events.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English webhook signature verification documentation inspected; no live webhooks triggered.
+    evidence: >-
+      The inspected documentation details HMAC-SHA256 signature verification over raw request
+      payload bytes, validates the timestamp component against replay tolerance windows (default 5 minutes),
+      recommends constant-time string comparison algorithms, and prescribes idempotent event handling
+      based on event IDs.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+- id: owasp-payment-gateway-integration-cheat-sheet
+  title: Third Party Payment Gateway Integration Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/Third_Party_Payment_Gateway_Integration_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: payments-workflows
+  related_topics: [webhooks-saas, business-logic, secure-design]
+  tier: core
+  annotation: >-
+    A comprehensive security baseline for integrating third-party payment gateways.
+    It covers PCI-DSS scope reduction through client-side tokenization and hosted fields,
+    mandates server-side validation of transaction amounts and currency codes, details
+    cryptographic verification of asynchronous gateway callbacks, and enforces state machine
+    integrity to prevent payment status tampering.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English payment gateway integration guidance inspected; no financial transactions processed.
+    evidence: >-
+      The inspected cheat sheet establishes PCI-DSS scope reduction via iframe/tokenization,
+      prohibits trusting client-submitted prices or payment statuses, requires verifying signatures
+      on asynchronous server-to-server callbacks and webhooks, and outlines secure payment state
+      transitions and idempotency controls.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+- id: owasp-grpc-security-cheat-sheet
+  title: gRPC Security Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/gRPC_Security_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences: [tester, developer]
+  primary_topic: grpc-soap
+  related_topics: [rest-openapi, distributed-components, hardening-defaults]
+  tier: core
+  annotation: >-
+    A practical security guide for gRPC microservices and APIs. It details transport
+    security requirements including mutual TLS (mTLS), token and metadata authentication
+    via interceptors, message-level authorization, Protocol Buffer validation boundaries
+    (clarifying that Protobuf enforces types but not business invariants), message size limits,
+    and disabling server reflection in production.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English gRPC security guidance inspected; no RPC calls executed.
+    evidence: >-
+      The inspected cheat sheet mandates TLS and recommends mTLS for zero-trust service communication,
+      covers interceptor-based JWT/API key validation, explains that Protobuf provides type safety
+      rather than business validation, requires max message size limits to prevent DoS, recommends
+      per-client rate limiting and timeouts, and advises disabling gRPC reflection in production.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: null
+
+- id: owasp-web-frontend-security-cheat-sheet
+  title: Web Frontend Security Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/Web_Frontend_Security_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: frontend-bff
+  related_topics: [rendering-architectures, xss, identity-mechanics]
+  tier: core
+  annotation: >-
+    A focused security guide for modern frontend architectures, Single Page Applications (SPA),
+    and asynchronous browser-backend communication. It establishes a zero-trust mindset for all data
+    flowing between client and server, covers safe DOM rendering (preventing innerHTML XSS sinks),
+    secure state management in memory vs. storage, and architectural patterns for decoupling API tokens
+    from frontend clients via Backend-for-Frontend (BFF) layers.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English frontend architecture and DOM security sections inspected; no scripts executed.
+    evidence: >-
+      The inspected cheat sheet establishes untrusted boundaries for client input, API responses, and browser
+      storage; details dangers of innerHTML and unsafe DOM sinks; provides guidelines for AJAX and REST communication;
+      and references micro-frontend and BFF isolation patterns.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+- id: owasp-nodejs-security-cheat-sheet
+  title: Nodejs Security Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/Nodejs_Security_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: framework-security
+  related_topics: [secure-code-review, hardening-defaults, build-deploy-basics]
+  tier: core
+  annotation: >-
+    A practical reference for securing Node.js runtime environments, web frameworks, and server architectures.
+    It details asynchronous control-flow pitfalls (pyramid of doom, unhandled promise rejections crashing the event loop),
+    error handling without sensitive stack trace leakage, blocking the single-threaded event loop (ReDoS, heavy crypto),
+    and process hardening.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English Node.js runtime and application security guidance inspected; no code executed.
+    evidence: >-
+      The inspected cheat sheet covers asynchronous Promise error handling to prevent event loop crashes;
+      warns against blocking the single thread with synchronous operations; details secure error handling
+      and logging; and provides platform hardening recommendations for Node.js production servers.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+- id: redis-security-guide
+  title: Redis Security Model and Guidelines
+  url: https://redis.io/docs/latest/operate/oss_and_stack/management/security/
+  author: Redis documentation team
+  type: documentation
+  language: en
+  difficulty: intermediate
+  audiences: [tester, developer]
+  primary_topic: backend-integrations
+  related_topics: [data-components, storage-secrets, secure-design]
+  tier: core
+  annotation: >-
+    The official architectural guide to Redis's security model, access control, and network isolation. It explains
+    that Redis is designed for trusted internal network access, detailing the severe risks of internet-exposed instances
+    (unauthenticated data deletion via FLUSHALL, unauthorized key access), protected mode mechanics, configuring strict
+    bind interfaces, and deploying Role-Based Access Control (ACLs) to enforce least-privilege operations between web
+    backends, caches, and queues.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English Redis security architecture and configuration sections inspected; no commands executed.
+    evidence: >-
+      The inspected documentation establishes that Redis instances must never be exposed directly to the internet;
+      explains how web applications must mediate client requests; details protected mode binding to loopback interfaces;
+      and outlines ACL user permissions and command restrictions for application integration.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+

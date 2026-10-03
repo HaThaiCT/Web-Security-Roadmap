@@ -1,0 +1,356 @@
+- id: owasp-authentication-cheat-sheet
+  title: Authentication Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences:
+  - learner
+  - tester
+  - developer
+  primary_topic: passwords-recovery
+  related_topics:
+  - sessions
+  - mfa-passkeys
+  - oauth-oidc
+  - saml-scim
+  - logging-detection
+  tier: core
+  annotation: Practical implementation guidance for authentication systems, including user identifiers, password policy, generic error handling, automated attack protections, TLS requirements, re-authentication triggers and logging. It is especially useful for developers and AppSec reviewers because it turns identity risks into concrete control requirements. Pair it with protocol-specific resources before designing OAuth, OIDC, SAML or passkey flows.
+  cost: free
+  access: public
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English cheat-sheet sections inspected; no code executed.
+    evidence: The inspected content covers random user IDs, NIST-aligned password lengths, breached-password screening, generic login and recovery errors, account lockout/backoff, MFA, TLS-only authenticated pages, re-authentication for sensitive changes, passwordless protocols and authentication event logging.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: null
+- id: owasp-authorization-cheat-sheet
+  title: Authorization Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences:
+  - tester
+  - developer
+  primary_topic: authorization-idor
+  related_topics:
+  - tenant-isolation
+  - secure-design
+  - security-testing
+  - logging-detection
+  tier: core
+  annotation: A practical control baseline for server-side authorization decisions. It emphasizes deny-by-default, least privilege, validating permissions on every request, centralized enforcement and logging failed access-control checks. Use it as the design and review companion to IDOR/BOLA testing resources.
+  cost: free
+  access: public
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English authorization guidance inspected; no code executed.
+    evidence: The inspected content covers deny-by-default, least privilege, permission validation on every request, ABAC/ReBAC-style resource and action attributes, server-side or gateway enforcement, centralized failure handling, testing and consistent access-control logging.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: null
+- id: owasp-idor-prevention-cheat-sheet
+  title: Insecure Direct Object Reference Prevention Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: beginner
+  audiences:
+  - learner
+  - tester
+  - developer
+  primary_topic: authorization-idor
+  related_topics:
+  - tenant-isolation
+  - testing-methodology
+  tier: core
+  annotation: 'Focused guidance for object-level authorization mistakes: object, reference and missing permission check. It is useful for learners because it separates identifier complexity from authorization, for testers because it describes cross-account verification, and for developers because it shows scoped lookup patterns. Treat opaque IDs as defense-in-depth only, never as the primary control.'
+  cost: free
+  access: public
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English IDOR prevention sections inspected; no code executed.
+    evidence: The inspected content defines IDOR through object/reference/missing object-level authorization, requires server-side authorization on every request, warns hidden fields are attacker-controllable, explains that GUIDs are only defense-in-depth, gives scoped Rails and Spring examples, and recommends testing read/create/update/delete/export/admin actions across multiple accounts and privilege levels.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: null
+- id: owasp-session-management-cheat-sheet
+  title: Session Management Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences:
+  - learner
+  - tester
+  - developer
+  primary_topic: sessions
+  related_topics:
+  - origins-cookies
+  - passwords-recovery
+  - csrf
+  - hardening-defaults
+  - logging-detection
+  tier: core
+  annotation: A detailed practical guide to web session design, cookie attributes, session ID entropy, expiration, rotation, logout and logging. It is especially useful for developers implementing session-backed apps and testers reviewing fixation, persistence, transport and token-storage mistakes.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English session-management sections inspected; no code executed.
+    evidence: The inspected content requires high-entropy meaningless session IDs, Secure/HttpOnly/SameSite/__Host- cookies, HTTPS for the whole session, HSTS, idle/absolute/renewal timeouts, regeneration after privilege changes, server-side logout invalidation, Cache-Control no-store and logging session creation/renewal/destruction without raw IDs.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+- id: owasp-oauth2-cheat-sheet
+  title: OAuth2 Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/OAuth2_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: advanced
+  audiences:
+  - tester
+  - developer
+  primary_topic: oauth-oidc
+  related_topics:
+  - jwt
+  - sessions
+  - csrf
+  - authorization-idor
+  tier: core
+  annotation: A compact security baseline for OAuth 2.x and OIDC deployments. It prioritizes Authorization Code with PKCE, strict redirect handling, state/nonce, token binding/rotation and resource-server validation. Read it after core authentication and sessions; OAuth is a delegation protocol, not a generic login shortcut.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English OAuth2 guidance inspected; no code executed.
+    evidence: The inspected content recommends Authorization Code with PKCE for all client types, deprecates implicit grant, requires downgrade-resistant PKCE handling, warns against arbitrary redirect forwarding and HTTP redirect URIs except loopback native-client cases, explains state/nonce CSRF handling, and requires resource servers to validate token audience and scopes/actions on every request.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+- id: owasp-json-web-token-cheat-sheet
+  title: JSON Web Token Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences:
+  - learner
+  - tester
+  - developer
+  primary_topic: jwt
+  related_topics:
+  - oauth-oidc
+  - sessions
+  - applied-crypto
+  tier: core
+  annotation: A thorough technical reference for securing JSON Web Tokens (JWT) across issuance, transmission, and validation. It addresses critical cryptographic pitfalls including alg none stripping, public-key vs HMAC key type confusion, untrusted header parameters (jwk, jku, kid, x5u), cross-JWT confusion, and token revocation strategies via status lists and deny-lists.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English JWT cheat-sheet sections inspected; no exploit tokens generated.
+    evidence: The inspected cheat sheet details JWT structure, warns against algorithm confusion (using public keys as HMAC secrets), unsecured tokens (alg none), trusting key material in token headers (jwk, jku, x5u, kid), issuer/audience confusion, and details defensive patterns including strict algorithm allowlisting, separate verification keys, and token revocation via Token Status Lists.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+- id: portswigger-saml-authentication-bypasses
+  title: 'The Fragile Lock: Novel Bypasses For SAML Authentication'
+  url: https://portswigger.net/research/the-fragile-lock
+  author: PortSwigger Research
+  type: article
+  language: en
+  difficulty: advanced
+  audiences:
+  - tester
+  - developer
+  primary_topic: saml-scim
+  related_topics:
+  - parsing-templates
+  - tenant-isolation
+  - practice-labs
+  tier: core
+  annotation: Cutting-edge security research on SAML 2.0 implementations demonstrating full authentication bypasses via XML Signature Wrapping (XSW), attribute pollution, namespace confusion, and Void Canonicalization. It analyzes parser desynchronization between signature verification and assertion consumer modules (e.g. Nokogiri vs REXML) and details how empty digest strings lead to universal token forgery.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: 'Published December 2025 by PortSwigger Research.'
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English SAML research paper and technical write-up inspected; no authentication bypasses executed.
+    evidence: The inspected research details XML Signature Wrapping against Ruby-SAML and PHP-SAML, reveals dual-parser desynchronization where Nokogiri and REXML resolve conflicting XPath attributes, explores namespace-based signature hiding, and documents Void Canonicalization where libxml2 errors cause empty string hashing (SHA-256 digest 47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=), enabling arbitrary assertion forgery.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+- id: owasp-saml-security-cheat-sheet
+  title: SAML Security Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/SAML_Security_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences:
+  - learner
+  - tester
+  - developer
+  primary_topic: saml-scim
+  related_topics:
+  - tenant-isolation
+  - oauth-oidc
+  - parsing-templates
+  tier: extended
+  annotation: A structured baseline for implementing and securing the Web Browser SAML/SSO profile. It provides verification rules for protocol usage, message integrity, signature validation over Assertions and Responses, XML parser hardening against XXE and XSW, and handling IdP-initiated unsolicited responses.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English SAML security guidance inspected; no assertions validated.
+    evidence: The inspected cheat sheet specifies protocol validation rules for SAML responses and assertions, signature verification requirements (signing entire assertion vs response), recipient and audience restriction checks, replay attack mitigations via assertion IDs, and defenses against XML parser desynchronization and XXE.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+- id: owasp-multifactor-authentication-cheat-sheet
+  title: Multifactor Authentication Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/Multifactor_Authentication_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: mfa-passkeys
+  related_topics: [passwords-recovery, sessions, identity-mechanics]
+  tier: core
+  annotation: >-
+    An authoritative reference for designing, implementing, and assessing multifactor
+    authentication (MFA). It analyzes the five recognized authentication factor types,
+    ranks factor security (contrasting phishing-resistant FIDO2/WebAuthn with restricted SMS/voice
+    channels), details attack patterns like MFA fatigue and adversary-in-the-middle reverse proxies,
+    and defines strict requirements for high-risk factor resets and step-up authentication.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English MFA cheat sheet sections inspected; no authentication flows executed.
+    evidence: >-
+      The inspected cheat sheet structures authentication into 5 factor categories, highlights
+      FIDO2/WebAuthn as phishing-resistant by binding credentials to the browser origin, notes
+      NIST SP 800-63B deprecation of SMS/phone channels and security questions, addresses MFA fatigue
+      via number matching and rate limiting, and mandates out-of-band notifications and re-authentication
+      for MFA resets and factor modification.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+- id: webauthn-guide
+  title: WebAuthn Guide
+  url: https://webauthn.guide/
+  author: Duo Security
+  type: documentation
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: mfa-passkeys
+  related_topics: [passwords-recovery, applied-crypto, web-standards]
+  tier: core
+  annotation: >-
+    A clear, interactive technical guide to the W3C Web Authentication (WebAuthn) / FIDO2
+    standard. It breaks down asymmetric public-key credential creation (navigator.credentials.create)
+    and assertion authentication (navigator.credentials.get), explaining how hardware-backed private
+    keys and cryptographic origin-binding structurally eliminate credential theft and adversary-in-the-middle
+    phishing.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English WebAuthn architecture and flow sections inspected; no credentials created.
+    evidence: >-
+      The inspected guide details WebAuthn's public key cryptography architecture, explains the
+      registration flow returning an attestationObject and clientDataJSON, documents the authentication
+      assertion flow signing server challenges, and details how the browser automatically verifies
+      and binds the relying party ID (origin), structurally defeating credential phishing and credential replay.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+- id: azure-multitenant-architecture
+  title: Architect Multitenant Solutions on Azure
+  url: https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/overview
+  author: Microsoft Azure Architecture Center
+  type: documentation
+  language: en
+  difficulty: advanced
+  audiences: [tester, developer]
+  primary_topic: tenant-isolation
+  related_topics: [authorization-idor, cloud-iam, secure-design]
+  tier: core
+  annotation: >-
+    An authoritative reference architecture for designing multi-tenant software-as-a-service (SaaS)
+    solutions. It establishes clear architectural boundaries between users and tenants, analyzes tenancy
+    models (deployment stamps, siloed vs. pooled compute/storage), details data isolation strategies
+    (database-per-tenant, schema-per-tenant, shared database with Row-Level Security), and covers
+    tenant context propagation across distributed services.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English multi-tenant architectural guidance inspected; no cloud services deployed.
+    evidence: >-
+      The inspected architecture guide distinguishes users from tenants; evaluates pooled vs. siloed
+      isolation patterns; details data isolation models including shared datastores with Row-Level
+      Security (RLS); and covers tenant context propagation and cross-tenant delegation security boundaries.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+

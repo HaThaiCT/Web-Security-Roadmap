@@ -1,0 +1,296 @@
+- id: portswigger-web-security-academy
+  title: Web Security Academy
+  url: https://portswigger.net/web-security
+  author: PortSwigger Research
+  type: lab
+  language: en
+  difficulty: beginner
+  audiences: [learner, tester, developer]
+  primary_topic: practice-labs
+  related_topics:
+    - testing-methodology
+    - sql-nosql
+    - xss
+    - csrf
+    - ssrf
+    - jwt
+    - oauth-oidc
+    - graphql
+    - race-conditions
+    - http-smuggling
+    - web-caching
+    - ai-web-security
+  tier: core
+  annotation: >-
+    A broad, free training platform with guided material and realistic labs
+    across major web vulnerability classes, APIs, identity flaws, protocol
+    issues and newer areas such as LLM/AI attacks. It is useful for learners
+    and authorized testers because practice happens in a safe and legal lab
+    environment rather than on real targets. Some exercises require Burp
+    Suite; the Community Edition is sufficient for many labs, but the account
+    and tooling expectations should be checked per lab.
+  cost: free
+  access: registration-required
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Public academy landing page and topic list inspected; labs were not executed.
+    evidence: >-
+      The inspected page describes the Academy as free, safe and legal web
+      security training, lists topics including SQL injection, XSS, CSRF,
+      SSRF, XXE, JWT attacks, OAuth, race conditions, NoSQL injection,
+      LLM/AI attacks, cache deception, prototype pollution, API testing,
+      GraphQL and WebSockets, and notes the use of realistic labs.
+  provenance:
+    origin: both
+    upstream_ids: [practices-application-portswigger-web-security-academy]
+  archive_url: null
+  version_context: null
+
+- id: owasp-web-security-testing-guide
+  title: Web Security Testing Guide
+  url: https://owasp.org/www-project-web-security-testing-guide/
+  author: OWASP Web Security Testing Guide contributors
+  type: documentation
+  language: en
+  difficulty: intermediate
+  audiences: [tester, developer]
+  primary_topic: testing-methodology
+  related_topics: [evidence-disclosure, practice-labs, security-testing, secure-code-review]
+  tier: core
+  annotation: >-
+    A structured methodology reference for web application security testing.
+    It is useful for authorized testers because it organizes assessment work
+    into repeatable categories instead of ad hoc payload use, and useful for
+    developers/AppSec because it translates into test planning and review
+    coverage. Use the project page as the stable entry point, then inspect
+    versioned guide chapters for specific test cases.
+  cost: free
+  access: public
+  verification:
+    status: public-excerpt-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Public OWASP project page inspected; full versioned guide chapters not exhaustively inspected in this batch.
+    evidence: >-
+      The inspected project page describes WSTG as a cybersecurity testing
+      resource for web application developers and security professionals,
+      identifies versioned releases including stable v4.2 and v5.0 in
+      development, provides hosted and PDF access paths, and frames the work
+      within OWASP project governance, contribution guidance and code of
+      conduct.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: 'Latest stable release noted by project page: 4.2; v5.0 in development.'
+
+- id: owasp-top-10-for-llm-applications
+  title: OWASP Top 10 for Large Language Model Applications
+  url: https://genai.owasp.org/llm-top-10/
+  author: OWASP Gen AI Security Project
+  type: documentation
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: ai-web-security
+  related_topics: [rag-isolation, information-errors, threat-modeling]
+  tier: core
+  annotation: >-
+    The premier risk taxonomy and awareness standard for applications integrating
+    Large Language Models. It defines critical failure modes including direct and
+    indirect prompt injection, sensitive data leakage, improper output handling,
+    excessive agency, and vector/embedding vulnerabilities, providing core security
+    principles for AI-enabled web features.
+  cost: free
+  access: public
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English 2025 risk list and mitigation definitions inspected; no model APIs invoked.
+    evidence: >-
+      The inspected standard details ten core LLM risks (LLM01 to LLM10: Prompt
+      Injection, Sensitive Information Disclosure, Supply Chain, Data/Model Poisoning,
+      Improper Output Handling, Excessive Agency, System Prompt Leakage, Vector/Embedding
+      Weaknesses, Misinformation, Unbounded Consumption), distinguishes direct vs.
+      indirect injection, and outlines defenses including input/output validation,
+      least agency, and rate limits.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: '2025 Edition published by the OWASP Gen AI Security Project.'
+
+- id: xs-leaks-wiki
+  title: XS-Leaks Wiki
+  url: https://xsleaks.dev/
+  author: XS-Leaks Research Community
+  type: documentation
+  language: en
+  difficulty: advanced
+  audiences: [tester, developer]
+  primary_topic: side-channels
+  related_topics: [privacy-leakage, browser-internals, origins-cookies]
+  tier: core
+  annotation: >-
+    The definitive knowledge base on Cross-Site Leaks (XS-Leaks) and web browser side channels.
+    It details how attackers infer sensitive user data across origins without directly violating
+    the Same-Origin Policy, analyzing timing attacks, frame counting, error events, navigation
+    timing, and cache probing, while outlining defense-in-depth protections including Fetch Metadata,
+    COOP, and CORP.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English XS-Leaks concept, attack, and defense wiki sections inspected; no timing probes executed.
+    evidence: >-
+      The inspected wiki details XS-Leaks principles, documents cross-site search (XS-Search)
+      exploiting network and execution timing oracles, analyzes browser state leakage via window.length
+      (frame counting) and error events, and outlines modern browser defenses: Sec-Fetch-Site and
+      Fetch Metadata headers, Cross-Origin-Opener-Policy (COOP), Cross-Origin-Resource-Policy (CORP),
+      and SameSite cookies.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+  archive_url: null
+  version_context: null
+
+- id: owasp-rag-security-cheat-sheet
+  title: RAG Security Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/RAG_Security_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: rag-isolation
+  related_topics: [ai-web-security, tenant-isolation, secure-design]
+  tier: core
+  annotation: >-
+    An authoritative reference for securing Retrieval-Augmented Generation (RAG) pipelines in enterprise AI applications.
+    It details how RAG redistributes attack surfaces across document ingestion, embedding generation, vector storage,
+    and response generation; establishes access control metadata on individual vector chunks; mandates tenant and
+    data classification isolation in vector databases; and outlines query normalization and output validation controls.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English RAG pipeline and vector store security guidance inspected; no embeddings generated.
+    evidence: >-
+      The inspected cheat sheet establishes foundational defenses for RAG architectures; mandates binding access
+      control metadata to every chunk; requires strict tenant and classification isolation within vector stores;
+      details context window delimiter protections against indirect prompt injection; and outlines fail-closed pipeline controls.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+- id: owasp-user-privacy-protection-cheat-sheet
+  title: User Privacy Protection Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/User_Privacy_Protection_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: privacy-leakage
+  related_topics: [side-channels, origins-cookies, secure-design]
+  tier: core
+  annotation: >-
+    A comprehensive guide for safeguarding user privacy, anonymity, and confidential communications in web applications.
+    It details mitigations against browser tracking, third-party analytics leaks, and surveillance; mandates end-to-end
+    transport and storage encryption; and details client identity protection controls including HTTP Strict Transport Security
+    (HSTS) and cookie partitioning.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English user privacy and data protection guidance inspected; no scripts executed.
+    evidence: >-
+      The inspected cheat sheet establishes privacy controls for web platforms; mandates strong transit and storage
+      cryptography; details defenses against network-level and intermediary tracking via HSTS and certificate protections;
+      and outlines privacy-preserving data minimization.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+- id: owasp-bot-management-anti-automation-cheat-sheet
+  title: Bot Management and Anti-Automation Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/Bot_Management_and_Anti-Automation_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: intermediate
+  audiences: [learner, tester, developer]
+  primary_topic: abuse-resilience
+  related_topics: [passwords-recovery, business-logic, secure-design]
+  tier: core
+  annotation: >-
+    A practical guide for mitigating automated threats and business-logic abuse across web applications. Grounded
+    in the OWASP Automated Threats to Web Applications project (OAT-001 through OAT-021), it covers defense against
+    credential stuffing (OAT-008), scraping (OAT-011), inventory scalping (OAT-005), and card testing (OAT-001), detailing
+    layered defensive architectures, behavioral anomaly detection, and rate limiting.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English bot management and anti-automation guidance inspected; no traffic simulated.
+    evidence: >-
+      The inspected cheat sheet analyzes automated abuse patterns (credential stuffing, scraping, inventory hoarding);
+      details endpoint-specific threat modeling (login, signup, search, checkout); and establishes layered controls
+      combining behavioral signals, velocity rate limiting, and CAPTCHA alternatives.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+- id: owasp-vulnerability-disclosure-cheat-sheet
+  title: Vulnerability Disclosure Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html
+  author: OWASP Cheat Sheet Series contributors
+  type: cheatsheet
+  language: en
+  difficulty: beginner
+  audiences: [learner, tester, developer]
+  primary_topic: evidence-disclosure
+  related_topics: [testing-methodology, incident-remediation, security-requirements]
+  tier: core
+  annotation: >-
+    An authoritative guide to the vulnerability disclosure lifecycle for security researchers, penetration testers,
+    and engineering organizations. It outlines expectations for authorized testing, actionable and reproducible evidence
+    reporting, bug bounty coordination, disclosure timelines, CVE assignment, and coordinated public advisories.
+  cost: free
+  access: public
+  archive_url: null
+  version_context: null
+  verification:
+    status: content-reviewed
+    checked_on: '2026-10-03'
+    method: webfetch
+    scope: Relevant English vulnerability disclosure process and ethics guidance inspected; no reports submitted.
+    evidence: >-
+      The inspected cheat sheet defines responsibilities for researchers (authorized testing, reproducible details,
+      no extortion) and organizations (clear reporting channels, responsive triage, safe harbor); evaluates private vs.
+      coordinated vs. full disclosure models; and details CVE requesting and advisory publication.
+  provenance:
+    origin: additional-research
+    upstream_ids: []
+
+
+
