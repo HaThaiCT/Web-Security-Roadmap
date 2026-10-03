@@ -1,4 +1,4 @@
-# Web Secuirty Roadmap
+# Web Security Roadmap
 
 A practical, curated Web Security knowledge base built around three ways to use the same material:
 
